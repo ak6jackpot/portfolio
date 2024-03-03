@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { Text, Heading, Img, Button } from "../../components";
 import Footer from "../../components/Footer";
+import Ticker from "react-ticker";
 
 export default function HomepagePage() {
   return (
@@ -15,30 +16,30 @@ export default function HomepagePage() {
       </Helmet>
       <div className="flex flex-col items-start justify-start w-full gap-[70px] bg-white-A700">
         <div className="flex flex-col items-center justify-start w-full gap-[54px]">
-          <header className="flex flex-row justify-between items-center w-full p-[15px]">
-            <Img
-              src="images/img_group_642.svg"
-              alt="image"
-              className="h-[50px] ml-[149px]"
-            />
-            <div className="flex flex-row justify-between items-start w-[30%] mr-[166px]">
-              <div className="flex flex-col items-center justify-start w-[12%] gap-2">
-                <Heading as="h6" className="!text-red-400_01 text-center">
-                  Home
-                </Heading>
-                <div className="h-1.5 w-1.5 bg-red-400_01 rounded-[50%]" />
-              </div>
-              <Heading as="h6" className="text-center">
-                About
-              </Heading>
-              <Heading as="h6" className="text-center">
-                Works
-              </Heading>
-              <Heading as="h6" className="text-center">
-                Contact
-              </Heading>
-            </div>
+          <header className="flex flex-row justify-between items-center w-[80%] p-[15px]">
+            <Heading as="h3" className="text-center">
+              About
+            </Heading>
+            <Heading as="h3" className="text-center">
+              Experience
+            </Heading>
+            <Heading as="h3" className="text-center">
+              Projects
+            </Heading>
+            <Heading as="h3" className="text-center">
+              Contact
+            </Heading>
           </header>
+          <div className="h-[246px] w-full relative">
+            <Ticker>
+              {({ index }) => (
+                <>
+                  <h4>This is the Headline of element #{index}!</h4>
+                  {/* <img src="images/ProfilePic.png" alt="" /> */}
+                </>
+              )}
+            </Ticker>
+          </div>
           <div className="flex flex-col items-center justify-start w-full gap-[100px]">
             <div className="flex flex-col items-center justify-start w-full gap-[95px] max-w-[1181px]">
               <div className="h-[646px] w-full relative">

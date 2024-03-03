@@ -14,23 +14,25 @@ export default function HomepagePage() {
           content="Web site created using create-react-app"
         />
       </Helmet>
-      <div className="flex flex-col items-start justify-start w-full gap-[70px] bg-white-A700">
+      <div className="flex flex-col items-start justify-start w-full gap-[70px] bg-black">
         <div className="flex flex-col items-center justify-start w-full gap-[54px]">
-          <header className="flex flex-row justify-between items-center w-[80%] p-[15px]">
-            <Heading as="h3" className="text-center">
-              About
-            </Heading>
-            <Heading as="h3" className="text-center">
-              Experience
-            </Heading>
-            <Heading as="h3" className="text-center">
-              Projects
-            </Heading>
-            <Heading as="h3" className="text-center">
-              Contact
-            </Heading>
-          </header>
-          <div className="h-[246px] w-full relative">
+          <div className="flex flex-row justify-between items-center w-full px-[100px] py-[10px] text-white bg-black border-b-2 border-slate-600">
+            <Img
+              src="images/AK_cover.png"
+              alt="image_one"
+              className="h-[40px]"
+            />
+            <div className="flex flex-row justify-between items-center w-[30%]">
+              <span>About</span>
+              <span>Experience</span>
+              <span>Projects</span>
+              <span>Contact</span>
+            </div>
+            <Button className="bg-gray-100 text-black hover:bg-gray-800 hover:text-white">
+              Let's Talk
+            </Button>
+          </div>
+          <div className="h-[246px] w-full relative text-white">
             <Ticker>
               {({ index }) => (
                 <>

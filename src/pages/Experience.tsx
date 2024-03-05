@@ -4,7 +4,7 @@ import { Img, Heading, Text } from "../components";
 import Footer from "../components/Footer";
 import Header from "components/Header";
 
-export default function WorksPage() {
+export default function ExperiencePage() {
   return (
     <>
       <Helmet>
@@ -12,7 +12,7 @@ export default function WorksPage() {
         <meta name="Akshat Singh" content="Front End Developer Portfolio" />
       </Helmet>
       <div className="flex flex-col items-center justify-start w-full font-plusJakartaSans gap-[70px] bg-black">
-        <Header current="works" />
+        <Header current="exp" />
         <div className="w-[50%] aspect-video border-2 border-white">
           <div className="flex flex-col items-start flex-1">
             <span className="text-white">Hi I am</span>

@@ -24,7 +24,7 @@ export default function Header({ ...props }: Props) {
         </Button>
         <Button
           className={current == "exp" ? "border-b-4 border-red-300" : null}
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/exp")}
         >
           Experience
         </Button>

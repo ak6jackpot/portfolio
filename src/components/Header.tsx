@@ -14,7 +14,7 @@ export default function Header({ ...props }: Props) {
 
   return (
     <div className="flex flex-row justify-between items-center w-full px-[100px] py-[10px] text-white bg-black border-b-2 border-slate-600">
-      <Img src="images/AK_cover.png" alt="image_one" className="h-[40px]" />
+      <Img src="images/AK_cover.png" alt="image_one" className="h-[40px]" onClick={() => navigate("/")} />
       <div className="flex flex-row justify-between font-plusJakartaSans items-center w-[30%]">
         <Button
           className={current == "about" ? "border-b-4 border-red-300" : null}

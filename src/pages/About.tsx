@@ -5,20 +5,25 @@ import Footer from "../components/Footer";
 import Header from "components/Header";
 import WavyBorder from "components/WavyBorder";
 import Ticker from "react-ticker";
-import Artwork_0 from "../../public/images/Artworks/Artwork_0.jpg";
-import Artwork_1 from "../../public/images/Artworks/Artwork_1.jpg";
-import Artwork_2 from "../../public/images/Artworks/Artwork_2.jpg";
-import Artwork_3 from "../../public/images/Artworks/Artwork_3.jpg";
-import Artwork_4 from "../../public/images/Artworks/Artwork_4.jpg";
-import Artwork_5 from "../../public/images/Artworks/Artwork_5.jpg";
-import Artwork_6 from "../../public/images/Artworks/Artwork_6.jpg";
-import Artwork_7 from "../../public/images/Artworks/Artwork_7.jpg";
-import Artwork_8 from "../../public/images/Artworks/Artwork_8.jpg";
-import Artwork_9 from "../../public/images/Artworks/Artwork_9.jpg";
-import Artwork_10 from "../../public/images/Artworks/Artwork_10.jpg";
-import Artwork_11 from "../../public/images/Artworks/Artwork_11.jpg";
-import Artwork_12 from "../../public/images/Artworks/Artwork_12.jpg";
-import Artwork_13 from "../../public/images/Artworks/Artwork_13.jpg";
+import Artwork_0 from "../assets/images/Artworks/Artwork_0.jpg";
+import Artwork_1 from "../assets/images/Artworks/Artwork_1.jpg";
+import Artwork_2 from "../assets/images/Artworks/Artwork_2.jpg";
+import Artwork_3 from "../assets/images/Artworks/Artwork_3.jpg";
+import Artwork_4 from "../assets/images/Artworks/Artwork_4.jpg";
+import Artwork_5 from "../assets/images/Artworks/Artwork_5.jpg";
+import Artwork_6 from "../assets/images/Artworks/Artwork_6.jpg";
+import Artwork_7 from "../assets/images/Artworks/Artwork_7.jpg";
+import Artwork_8 from "../assets/images/Artworks/Artwork_8.jpg";
+import Artwork_9 from "../assets/images/Artworks/Artwork_9.jpg";
+import Artwork_10 from "../assets/images/Artworks/Artwork_10.jpg";
+import Artwork_11 from "../assets/images/Artworks/Artwork_11.jpg";
+import Artwork_12 from "../assets/images/Artworks/Artwork_12.jpg";
+import Artwork_13 from "../assets/images/Artworks/Artwork_13.jpg";
+
+import badminton from "../assets/images/Sports/badminton.jpeg";
+import cricket from "../assets/images/Sports/cricket.jpg";
+import formula1 from "../assets/images/Sports/formula1.jpg";
+import tabletennis from "../assets/images/Sports/tabletennis.jpg";
 
 export default function AboutPage() {
   const artworks = [
@@ -37,6 +42,8 @@ export default function AboutPage() {
     Artwork_12,
     Artwork_13,
   ];
+
+  const sports = [badminton, cricket, formula1, tabletennis];
   return (
     <>
       <Helmet>
@@ -73,12 +80,20 @@ export default function AboutPage() {
         <div className="flex flex-col bg-orange w-full -mt-20">
           <span className="text-white">In my free time I enjoy,</span>
           <span className="text-white">Artworks</span>
-          <div className="h-[300px] w-full relative">
-            <span className="text-white">art carousel</span>
+          <div className="h-[370px] flex flex-row overflow-x-scroll overflow-y-hidden px-4">
+            {artworks.map((item) => (
+              <div className="h-[300px] aspect-square px-2">
+                <img src={item} />
+              </div>
+            ))}
           </div>
           <span className="text-white">Playing and watching sports</span>
-          <div className="h-[300px] w-full relative">
-            <span className="text-white">sports carousel</span>
+          <div className="h-[250px] flex flex-row overflow-x-scroll overflow-y-hidden px-4">
+            {sports.map((item) => (
+              <div className="w-[500px] aspect-video px-2">
+                <img src={item} />
+              </div>
+            ))}
           </div>
         </div>
         <Footer className="flex justify-center items-center w-full pt-[47px] px-[47px] rounded-tr-[50px] bg-gray-800" />

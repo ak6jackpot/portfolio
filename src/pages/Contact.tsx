@@ -12,27 +12,20 @@ export default function ContactPage() {
       </Helmet>
       <div className="flex flex-col items-center justify-start w-full font-plusJakartaSans gap-[70px] bg-black">
         <Header current="contact" />
-        <div className="w-[50%] aspect-video border-2 border-white">
-          <div className="flex flex-col items-start flex-1">
-            <span className="text-white">Hi I am</span>
-            <span className="text-white">Akshat Singh</span>
-            <span className="text-white">
-              As a BITS Pilani graduate with technical expertise in React Native
-              and a hustling mindset, I am a skilled and collaborative front-end
-              developer.
-            </span>
-          </div>
-          <div className="items-start flex-1">
-            <span className="text-white">social media icons</span>
-            <span className="text-white">lets chat button</span>
-          </div>
-        </div>
         <div className="flex flex-row">
           <div>
-            <span className="text-white">education</span>
+            <span className="text-white">profile pic</span>
           </div>
-          <div>
-            <span className="text-white">experience</span>
+          <div className="w-[50%] aspect-video bg-white p-0.5 bg-gradient-to-r from-deep_purple via-indigo rounded-lg to-orange">
+            <div className="bg-black rounded-lg p-2">
+              <div className="flex flex-col items-start flex-1">
+                <span className="text-white">Let's Connect</span>
+                <span className="text-white">You can reach out to me on</span>
+              </div>
+              <div className="items-start flex-1">
+                <span className="text-white">social media icons</span>
+              </div>
+            </div>
           </div>
         </div>
         <Footer className="flex justify-center items-center w-full pt-[47px] px-[47px] rounded-tr-[50px] bg-gray-800" />

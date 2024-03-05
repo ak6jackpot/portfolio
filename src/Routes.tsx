@@ -1,31 +1,29 @@
+import AboutPage from "pages/About";
+import ContactPage from "pages/Contact";
+import HomePage from "pages/Homepage";
+import NotFound from "pages/NotFound";
+import WorksPage from "pages/Works";
 import React from "react";
 import { useRoutes } from "react-router-dom";
-import Home from "pages/Home";
-import NotFound from "pages/NotFound";
-import Homepage from "pages/Homepage";
-import About from "pages/About";
-import Works from "pages/Works";
-import Contact from "pages/Contact";
 
 const ProjectRoutes = () => {
   let element = useRoutes([
-    { path: "dhiwise-dashboard", element: <Home /> },
     { path: "*", element: <NotFound /> },
     {
       path: "/",
-      element: <Homepage />,
+      element: <HomePage />,
     },
     {
       path: "about",
-      element: <About />,
+      element: <AboutPage />,
     },
     {
       path: "works",
-      element: <Works />,
+      element: <WorksPage />,
     },
     {
       path: "contact",
-      element: <Contact />,
+      element: <ContactPage />,
     },
   ]);
 

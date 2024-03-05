@@ -5,3 +5,19 @@
   font-family: "Nunito";
   font-weight: 800;
 }
+
+@font-face {
+  font-display: swap;
+  font-style: normal;
+  src: url("/public/fonts/PlusJakartaSans.ttf");
+  font-family: "PlusJakartaSans";
+  font-weight: 800;
+}
+
+@font-face {
+  font-display: swap;
+  font-style: normal;
+  src: url("/public/fonts/Rubik.ttf");
+  font-family: "Rubik";
+  font-weight: 800;
+}

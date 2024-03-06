@@ -1,8 +1,6 @@
+import Header from "components/Header";
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Img, Heading, Text } from "../components";
-import Footer from "../components/Footer";
-import Header from "components/Header";
 
 export default function ExperiencePage() {
   return (
@@ -36,7 +34,7 @@ export default function ExperiencePage() {
             <span className="text-white">experience</span>
           </div>
         </div>
-        <Footer className="flex justify-center items-center w-full pt-[47px] px-[47px] rounded-tr-[50px] bg-gray-800" />
+        {/* <Footer/> */}
       </div>
     </>
   );

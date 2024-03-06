@@ -46,7 +46,7 @@ export default function Header({ ...props }: Props) {
           Contact
         </Button>
       </div>
-      <Button className="bg-gradient-to-r from-deep_purple to-orange text-black font-plusJakartaSans hover:from-black hover:to-red-A200 hover:text-white">
+      <Button className="bg-gradient-to-r from-black to-teal-600 text-white font-plusJakartaSans hover:from-white hover:to-white hover:text-black">
         Let's Talk
       </Button>
     </div>

@@ -1,9 +1,7 @@
 import Header from "components/Header";
-import WavyBorder from "components/WavyBorder";
 import React from "react";
 import { Helmet } from "react-helmet";
 import { Img } from "../components";
-import Footer from "../components/Footer";
 
 export default function HomePage() {
   return (
@@ -29,7 +27,7 @@ export default function HomePage() {
             />
           </div>
         </div>
-        <Footer className="flex justify-center items-center w-full pt-[47px] px-[47px] rounded-tr-[50px] bg-gray-800" />
+        {/* <Footer/> */}
       </div>
     </>
   );

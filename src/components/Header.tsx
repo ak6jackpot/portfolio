@@ -14,7 +14,12 @@ export default function Header({ ...props }: Props) {
 
   return (
     <div className="flex flex-row justify-between items-center w-full px-[100px] py-[10px] text-white bg-black border-b-2 border-slate-600">
-      <Img src="images/AK_cover.png" alt="image_one" className="h-[40px]" onClick={() => navigate("/")} />
+      <Img
+        src="images/AK_cover.png"
+        alt="image_one"
+        className="h-[40px]"
+        onClick={() => navigate("/")}
+      />
       <div className="flex flex-row justify-between font-plusJakartaSans items-center w-[30%]">
         <Button
           className={current == "about" ? "border-b-4 border-red-300" : null}
@@ -41,7 +46,7 @@ export default function Header({ ...props }: Props) {
           Contact
         </Button>
       </div>
-      <Button className="bg-gray-100 text-black font-plusJakartaSans hover:bg-gray-800 hover:text-white">
+      <Button className="bg-gradient-to-r from-deep_purple to-orange text-black font-plusJakartaSans hover:from-black hover:to-red-A200 hover:text-white">
         Let's Talk
       </Button>
     </div>

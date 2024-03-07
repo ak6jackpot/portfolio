@@ -48,7 +48,7 @@ export default function AboutPage() {
         <title>Portfolio</title>
         <meta name="Akshat Singh" content="Front End Developer Portfolio" />
       </Helmet>
-      <div className="flex flex-col items-center justify-start w-full font-plusJakartaSans gap-[70px] bg-black">
+      <div className="flex flex-col items-center justify-start w-full h-auto font-plusJakartaSans gap-[70px] bg-black">
         <Header current="about" />
         <div className="w-[50%] aspect-video border-2 border-white">
           <div className="flex flex-col items-start flex-1">
@@ -75,21 +75,23 @@ export default function AboutPage() {
         </div>
         <WavyBorder color={"#F59E0B"} />
 
-        <div className="flex flex-col bg-amber-500 w-full -mt-20">
-          <span className="text-white">In my free time I enjoy,</span>
-          <span className="text-white">Artworks</span>
-          <div className="h-[370px] flex flex-row overflow-x-scroll overflow-y-hidden px-4">
+        <div className="flex flex-col bg-amber-500 w-full -mt-20 pl-16">
+          <span className="text-white text-lg">In my free time I enjoy,</span>
+          <span className="text-white text-2xl">Artworks →</span>
+          <div className="h-[370px] flex flex-row overflow-x-scroll overflow-y-hidden pr-8 my-4">
             {artworks.map((item) => (
-              <div className="h-[300px] aspect-square px-2">
-                <img src={item} />
+              <div className="h-[300px] aspect-square pr-4">
+                <img className="border-4 border-black" src={item} />
               </div>
             ))}
           </div>
-          <span className="text-white">Playing and watching sports</span>
-          <div className="h-[250px] flex flex-row overflow-x-scroll overflow-y-hidden px-4">
+          <span className="text-white text-2xl">
+            Playing and watching sports →
+          </span>
+          <div className="h-[250px] flex flex-row overflow-x-scroll overflow-y-hidden pr-8 my-4">
             {sports.map((item) => (
-              <div className="w-[500px] aspect-video px-2">
-                <img src={item} />
+              <div className="w-[500px] aspect-video pr-4">
+                <img className="border-4 border-black" src={item} />
               </div>
             ))}
           </div>

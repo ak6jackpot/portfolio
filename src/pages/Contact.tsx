@@ -8,7 +8,7 @@ import linkedin from "../assets/images/Social/linkedin.png";
 import threads from "../assets/images/Social/threads.png";
 import Footer from "components/Footer";
 import { Button } from "components/Button";
-import ProfilePic from "../assets/images/ProfilePic.png"
+import ProfilePic from "../assets/images/ProfilePic.png";
 
 export default function ContactPage() {
   return (
@@ -72,7 +72,9 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
-      <Footer />
+      <div className="absolute bottom-0 w-full">
+        <Footer />
+      </div>
     </>
   );
 }

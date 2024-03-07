@@ -8,10 +8,8 @@ interface Props {
 export default function Footer({ ...props }: Props) {
   return (
     <footer>
-      <div className="absolute inset-x-0 bottom-0 w-full flex justify-center items-center pt-[47px] px-[47px] rounded-tr-[50px] bg-gray-800">
-        <Heading size="xs" as="p" className="!text-white-A700">
-          All Rights Reserved
-        </Heading>
+      <div className="absolute w-full flex text-white rounded-tr-[50px] bg-gray-800">
+        <span>All Rights Reserved</span>
       </div>
     </footer>
   );

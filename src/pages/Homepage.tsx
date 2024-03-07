@@ -1,7 +1,7 @@
 import Header from "components/Header";
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Img } from "../components";
+import ProfilePic from "../assets/images/ProfilePic.png"
 
 export default function HomePage() {
   return (
@@ -20,8 +20,8 @@ export default function HomePage() {
             </span>
           </div>
           <div className="flex flex-row items-start flex-1">
-            <Img
-              src="images/ProfilePic.png"
+            <img
+              src={ProfilePic}
               alt="image_one"
               className="w-1/3 rounded-3xl"
             />

@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "./Button";
-import { Img } from "./Img";
 import { useNavigate } from "react-router-dom";
+import AK_cover from "../assets/images/AK_cover.png"
 
 interface Props {
   className?: string;
@@ -14,8 +14,8 @@ export default function Header({ ...props }: Props) {
 
   return (
     <div className="flex flex-row justify-between items-center w-full px-[100px] py-[10px] text-white bg-black border-b-2 border-slate-600">
-      <Img
-        src="images/AK_cover.png"
+      <img
+        src={AK_cover}
         alt="image_one"
         className="h-[40px]"
         onClick={() => navigate("/")}

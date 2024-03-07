@@ -1,4 +1,3 @@
-import { Button } from "components";
 import Header from "components/Header";
 import React from "react";
 import { Helmet } from "react-helmet";
@@ -7,6 +6,9 @@ import github from "../assets/images/Social/github.png";
 import instagram from "../assets/images/Social/instagram.png";
 import linkedin from "../assets/images/Social/linkedin.png";
 import threads from "../assets/images/Social/threads.png";
+import Footer from "components/Footer";
+import { Button } from "components/Button";
+import ProfilePic from "../assets/images/ProfilePic.png"
 
 export default function ContactPage() {
   return (
@@ -22,7 +24,7 @@ export default function ContactPage() {
             <div className="p-2 bg-black rounded-full">
               <img
                 className="rounded-full w-[500px] aspect-square"
-                src="images/ProfilePic.png"
+                src={ProfilePic}
               />
             </div>
           </div>
@@ -69,8 +71,8 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-        {/* <Footer /> */}
       </div>
+      <Footer />
     </>
   );
 }

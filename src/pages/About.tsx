@@ -21,6 +21,7 @@ import badminton from "../assets/images/Sports/badminton.jpeg";
 import cricket from "../assets/images/Sports/cricket.jpg";
 import formula1 from "../assets/images/Sports/formula1.jpg";
 import tabletennis from "../assets/images/Sports/tabletennis.jpg";
+import Footer from "components/Footer";
 
 export default function AboutPage() {
   const artworks = [
@@ -93,8 +94,8 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-        {/* <Footer/> */}
       </div>
+      <Footer />
     </>
   );
 }

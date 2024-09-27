@@ -9,7 +9,7 @@ export default function WorksPage() {
         <title>Portfolio</title>
         <meta name="Akshat Singh" content="Front End Developer Portfolio" />
       </Helmet>
-      <div className="flex flex-col items-center justify-start w-full font-plusJakartaSans gap-[70px] bg-black">
+      <div className="flex flex-col items-center justify-start w-full font-urbanistNormal gap-[70px] bg-black">
         <Header current="works" />
         <div className="w-[50%] aspect-video border-2 border-white">
           <div className="flex flex-col items-start flex-1">

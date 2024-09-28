@@ -6,7 +6,6 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
-    screens: { md: { max: "1050px" }, sm: { max: "550px" } },
     extend: {
       boxShadow: {
         xs: "0px 50px  50px 0px #0000000c",

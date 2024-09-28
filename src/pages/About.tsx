@@ -24,6 +24,7 @@ import tabletennis from "../assets/images/Sports/tabletennis.jpg";
 import Footer from "components/Footer";
 
 import bits from "../assets/images/bits.png";
+import bits_full from "../assets/images/bits_full.jpeg";
 import mobileDev from "../assets/images/mobileDev.jpg";
 import webDev from "../assets/images/webDev.jpg";
 import UI from "../assets/images/UI.jpg";
@@ -55,48 +56,55 @@ export default function AboutPage() {
         <title>Portfolio</title>
         <meta name="Akshat Singh" content="Front End Developer Portfolio" />
       </Helmet>
-      <div className="flex flex-col items-center justify-start w-full h-auto font-urbanistThin text-white gap-[70px] bg-black">
+      <div className="flex flex-col items-center justify-start w-full h-auto font-urbanistThin text-white gap-[42px] bg-black">
         <Header current="about" />
-        <div className="w-[70%] aspect-video border-2 border-white rounded-3xl flex flex-row p-2">
-          <div className="flex-1 align-center justify-center ">
+        <div className="md:mx-32 border-0 bg-neutral-800 border-white m-4 rounded-3xl items-center flex flex-col md:flex-row py-2">
+          <div className="flex-1 hidden md:block align-center justify-center ml-2">
             <img
               className="h-full w-full object-cover rounded-2xl"
               src={bits}
             />
           </div>
-          <div className="flex flex-col items-start flex-2 pl-4">
-            <span className="text-6xl font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
+          <div className="md:hidden flex-1 overflow-hidden items-center jusify-center flex">
+            <img
+              className="object-contain w-full h-full rounded-2xl"
+              src={bits_full}
+            />
+          </div>
+          <div className="flex flex-col items-start flex-2 md:pl-4 ml-4">
+            <span className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
               About Me
             </span>
-            <span className=" font-urbanistNormal">Akshat Singh</span>
-            <span className=" font-urbanistNormal">
-              - BITS Pilani CSE graduate - Technical expertise in Mobile and App
-              Development - Inherent problem solving skills - Good sense of
-              design systems
-              {/* bullet point component here*/}
+            <span className="font-urbanistNormal">
+              - BITS Pilani CSE graduate
             </span>
-            <div className="flex flex-row p-4">
-              <div className="flex flex-row space-x-8">
-                <div className="flex flex-col items-center">
-                  <span className="text-6xl font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
-                    3+
-                  </span>
-                  <span className=" font-urbanistNormal">
-                    Applications Developed
-                  </span>
-                </div>
-                <div className="flex flex-col items-center">
-                  <span className="text-6xl font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
-                    20+
-                  </span>
-                  <span className=" font-urbanistNormal">XYZ done</span>
-                </div>
-                <div className="flex flex-col items-center">
-                  <span className="text-6xl font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
-                    1500+
-                  </span>
-                  <span className=" font-urbanistNormal">Github Commits</span>
-                </div>
+            <span className="font-urbanistNormal">
+              - Technical expertise in Mobile and App Development
+            </span>
+            <span className="font-urbanistNormal">
+              - Inherent problem solving skills
+            </span>
+            <span className="font-urbanistNormal">
+              - Good sense of design systems
+            </span>
+            <div className="flex flex-row py-4 justify-between md:space-x-8">
+              <div className="flex flex-col items-start md:items-center">
+                <span className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
+                  3+
+                </span>
+                <span className=" font-urbanistNormal">Apps Developed</span>
+              </div>
+              <div className="flex flex-col items-start md:items-center">
+                <span className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
+                  20+
+                </span>
+                <span className=" font-urbanistNormal">XYZ done</span>
+              </div>
+              <div className="flex flex-col items-start md:items-center">
+                <span className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
+                  1500+
+                </span>
+                <span className=" font-urbanistNormal">Github Commits</span>
               </div>
             </div>
             <Button className="bg-gradient-to-r from-black to-teal-600  font-urbanistNormal hover:from-white hover:to-white hover:text-black">
@@ -105,15 +113,21 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="flex flex-col w-[70%]">
-          <span className="text-6xl font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
+        <div className="flex flex-col text-center">
+          <span className="text-4xl md:text-6xl md:p-4 mx-8 md:mx-60 font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
             What I bring to the table
           </span>
 
-          <div className="flex flex-row">
-            <div className="flex flex-1 flex-col p-8">
-              <span className="text-4xl">Mobile Development</span>
-              <span className="my-8 leading-6">
+          <div className="flex flex-row md:px-32">
+            <div className="flex flex-1 flex-col p-8 md:text-left text-center justify-evenly">
+              <span className="text-2xl md:text-4xl ">Mobile Development</span>
+              <div className="flex flex-1 md:hidden my-8">
+                <img
+                  className="h-full w-full object-cover rounded-2xl"
+                  src={mobileDev}
+                />
+              </div>
+              <span className=" leading-6">
                 I specialize in creating intuitive, responsive mobile
                 applications that provide a seamless user experience across iOS
                 and Android platforms. From concept to deployment, I handle the
@@ -121,73 +135,91 @@ export default function AboutPage() {
                 security, and scalability, ensuring apps that are both robust
                 and user-friendly.
               </span>
-              <Button className="bg-gradient-to-r from-black to-teal-600 font-urbanistNormal hover:from-white hover:to-white hover:text-black">
+              <Button className="bg-gradient-to-r from-black to-teal-600 font-urbanistNormal hover:from-white hover:to-white hover:text-black mt-8">
                 View Project
               </Button>
             </div>
-            <div className="flex flex-1 p-8">
+            <div className="flex flex-1 p-8 hidden md:block">
               <img
                 className="h-full w-full object-cover rounded-2xl"
                 src={mobileDev}
               />
             </div>
           </div>
-          <div className="flex flex-row-reverse">
-            <div className="flex flex-1 flex-col p-8">
-              <span className="text-4xl">Web Development</span>
-              <span className="my-8 leading-6">
+          <div className="flex flex-row-reverse bg-neutral-800 md:px-32">
+            <div className="flex flex-1 flex-col p-8 md:text-left text-center justify-evenly">
+              <span className="text-2xl md:text-4xl ">Web Development</span>
+              <div className="flex flex-1 md:hidden my-8">
+                <img
+                  className="h-full w-full object-cover rounded-2xl"
+                  src={webDev}
+                />
+              </div>
+              <span className=" leading-6">
                 I develop dynamic, high-performance websites using the latest
                 technologies, ensuring a smooth user experience across all
                 devices. My work focuses on clean, maintainable code and best
                 practices, whether building responsive landing pages, complex
                 web applications, or backend services.
               </span>
-              <Button className="bg-gradient-to-r from-black to-teal-600 font-urbanistNormal hover:from-white hover:to-white hover:text-black">
+              <Button className="bg-gradient-to-r from-black to-teal-600 font-urbanistNormal hover:from-white hover:to-white hover:text-black mt-8">
                 View Project
               </Button>
             </div>
-            <div className="flex flex-1 p-8">
+            <div className="flex flex-1 p-8 hidden md:block">
               <img
                 className="h-full w-full object-cover rounded-2xl"
                 src={webDev}
               />
             </div>
           </div>
-          <div className="flex flex-row">
-            <div className="flex flex-1 flex-col p-8">
-              <span className="text-4xl">UI Design</span>
-              <span className="my-8 leading-6">
+          <div className="flex flex-row md:px-32">
+            <div className="flex flex-1 flex-col p-8 md:text-left text-center justify-evenly">
+              <span className="text-2xl md:text-4xl ">UI Design</span>
+              <div className="flex flex-1 md:hidden my-8">
+                <img
+                  className="h-full w-full object-cover rounded-2xl"
+                  src={UI}
+                />
+              </div>
+              <span className=" leading-6">
                 I design user interfaces that are both aesthetically pleasing
                 and highly functional. My approach combines creativity with
                 user-centered design principles, ensuring interfaces that not
                 only look great but enhance usability and accessibility.
               </span>
-              <Button className="bg-gradient-to-r from-black to-teal-600 font-urbanistNormal hover:from-white hover:to-white hover:text-black">
+              <Button className="bg-gradient-to-r from-black to-teal-600 font-urbanistNormal hover:from-white hover:to-white hover:text-black mt-8">
                 View Project
               </Button>
             </div>
-            <div className="flex flex-1 p-8">
+            <div className="flex flex-1 p-8 hidden md:block">
               <img
                 className="h-full w-full object-cover rounded-2xl"
                 src={UI}
               />
             </div>
           </div>
-          <div className="flex flex-row-reverse">
-            <div className="flex flex-1 flex-col p-8">
-              <span className="text-4xl">Problem Solving</span>
-              <span className="my-8 leading-6">
+          <div className="flex flex-row-reverse bg-neutral-800 md:px-32">
+            <div className="flex flex-1 flex-col p-8 md:text-left text-center justify-evenly">
+              <span className="text-2xl md:text-4xl ">Problem Solving</span>
+              <div className="flex flex-1 md:hidden my-8">
+                <img
+                  className="h-full w-full object-cover rounded-2xl"
+                  src={problemsolving}
+                />
+              </div>
+              <span className=" leading-6">
                 I thrive on tackling complex challenges, using logical and
                 creative approaches to develop effective solutions. My
                 problem-solving skills are backed by strong technical expertise
                 and a deep understanding of how to align solutions with user
                 needs and business goals.
               </span>
-              <Button className="bg-gradient-to-r from-black to-teal-600 font-urbanistNormal hover:from-white hover:to-white hover:text-black">
+              <Button className="bg-gradient-to-r from-black to-teal-600 font-urbanistNormal hover:from-white hover:to-white hover:text-black mt-8">
                 View Project
               </Button>
             </div>
-            <div className="flex flex-1 p-8">
+            <div className="flex flex-1 p-8 hidden md:block">
               <img
                 className="h-full w-full object-cover rounded-2xl"
                 src={problemsolving}

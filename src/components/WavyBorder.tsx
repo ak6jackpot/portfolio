@@ -8,7 +8,7 @@ export default function WavyBorder(props: any) {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-start w-full gap-[70px] bg-black">
+      <div className="flex flex-col items-center justify-start w-full gap-[70px] bg-neutral-900">
         {!inverted && (
           <div
             className="p-8 w-full"

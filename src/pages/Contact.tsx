@@ -17,11 +17,11 @@ export default function ContactPage() {
         <title>Portfolio</title>
         <meta name="Akshat Singh" content="Front End Developer Portfolio" />
       </Helmet>
-      <div className="flex flex-col items-center justify-start w-full h-screen font-urbanistNormal gap-[70px] bg-black">
+      <div className="flex flex-col items-center justify-start w-full h-screen font-urbanistNormal gap-[70px] bg-neutral-900">
         <Header current="contact" />
         <div className="flex flex-row w-[60%] items-center">
           <div className="rounded-full w-[600px] p-0.5 aspect-square bg-gradient-to-r mx-16 from-violet-900 via-blue-600 to-amber-500">
-            <div className="p-2 bg-black rounded-full">
+            <div className="p-2 bg-neutral-900 rounded-full">
               <img
                 className="rounded-full w-[500px] aspect-square"
                 src={ProfilePic}
@@ -29,7 +29,7 @@ export default function ContactPage() {
             </div>
           </div>
           <div className="w-full aspect-video p-0.5 bg-gradient-to-r from-violet-900 via-blue-600 rounded-lg to-amber-500 my-4">
-            <div className="bg-black rounded-lg aspect-video p-2 items-center justify-between">
+            <div className="bg-neutral-900 rounded-lg aspect-video p-2 items-center justify-between">
               <div className="flex flex-col  items-center justify-center py-4">
                 <span className="text-white py-1">Let's Connect</span>
                 <span className="text-white py-1">

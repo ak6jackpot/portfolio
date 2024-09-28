@@ -20,7 +20,7 @@ export default function Header({ ...props }: Props) {
   };
 
   return (
-    <div className="flex flex-row justify-between items-center w-full px-4 md:px-[10%] py-[10px] text-white bg-black border-b-2 border-slate-600">
+    <div className="flex flex-row justify-between items-center w-full px-4 md:px-[10%] fixed top-0 z-50 py-[10px] text-white bg-neutral-900 border-b-2 border-slate-600">
       <img
         src={AK_cover}
         alt="image_one"
@@ -63,7 +63,7 @@ export default function Header({ ...props }: Props) {
       </Button>
 
       {isMenuOpen && (
-        <div className="absolute top-[80px] left-0 w-full bg-black text-white flex flex-col items-center space-y-4 py-8 md:hidden z-10">
+        <div className="absolute top-[80px] left-0 w-full bg-neutral-900 text-white flex flex-col items-center space-y-4 py-8 md:hidden z-10">
           <Button
             className={current === "about" ? "border-b-4 border-red-300" : ""}
             onClick={() => {

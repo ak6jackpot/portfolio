@@ -1,7 +1,9 @@
 import AboutPage from "pages/About";
+import Amigo from "pages/Amigo";
 import ContactPage from "pages/Contact";
 import ExperiencePage from "pages/Experience";
 import HomePage from "pages/Homepage";
+import NFT from "pages/NFT";
 import NotFound from "pages/NotFound";
 import WorksPage from "pages/Works";
 import React from "react";
@@ -29,6 +31,14 @@ const ProjectRoutes = () => {
     {
       path: "exp",
       element: <ExperiencePage />,
+    },
+    {
+      path: "nft",
+      element: <NFT />,
+    },
+    {
+      path: "amigo",
+      element: <Amigo />,
     },
   ]);
 

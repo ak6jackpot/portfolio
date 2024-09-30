@@ -1,8 +1,23 @@
 import Header from "components/Header";
 import React from "react";
 import { Helmet } from "react-helmet";
+import amigo2 from "../assets/images/amigo2.jpg";
+import amigo5 from "../assets/images/amigo5.jpg";
+import amigo6 from "../assets/images/amigo6.jpg";
+import nft2 from "../assets/images/nft2.png";
+import nft5 from "../assets/images/nft5.png";
+import nft1 from "../assets/images/nft1.png";
+import Footer from "components/Footer";
+import { Button } from "components/Button";
+import ListItem from "components/ListItem";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
+import ImageCarousel from "components/ImageCarousel";
+import { useNavigate } from "react-router-dom";
 
 export default function WorksPage() {
+  const navigate = useNavigate();
+
   return (
     <>
       <Helmet>
@@ -11,30 +26,93 @@ export default function WorksPage() {
       </Helmet>
       <div className="flex flex-col items-center justify-start w-full font-urbanistNormal gap-[70px] bg-neutral-900">
         <Header current="works" />
-        <div className="w-[50%] aspect-video border-2 border-white">
-          <div className="flex flex-col items-start flex-1">
-            <span className="text-white">Hi I am</span>
-            <span className="text-white">Akshat Singh</span>
-            <span className="text-white">
-              As a BITS Pilani graduate with technical expertise in React Native
-              and a hustling mindset, I am a skilled and collaborative front-end
-              developer.
-            </span>
-          </div>
-          <div className="items-start flex-1">
-            <span className="text-white">social media icons</span>
-            <span className="text-white">lets chat button</span>
+        <div className="flex flex-col text-center text-white mt-24">
+          <span className="text-4xl md:text-6xl md:p-4 mx-8 md:mx-60 font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
+            Projects
+          </span>
+
+          <div className="flex flex-col justify-center md:mt-8">
+            <div className="flex flex-row bg-neutral-900 md:px-32">
+              <div className="flex flex-1 flex-col p-8 md:text-left text-center justify-evenly">
+                <span className="text-2xl md:text-4xl">Amigo</span>
+                <div className="flex flex-1 md:hidden my-8">
+                  <img
+                    className="w-full object-contain rounded-2xl"
+                    src={amigo2}
+                  />
+                </div>
+                <span className="leading-6 items-start flex flex-col">
+                  <ListItem
+                    text="A travel companion app that takes care of your entire trip"
+                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
+                    size="small"
+                  />
+                  <ListItem
+                    text="Planning itineraries based on your preferences, nearby suggestions, local translations"
+                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
+                    size="small"
+                  />
+                  <ListItem
+                    text="Collaborative and offline functionalities for ease of use"
+                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
+                    size="small"
+                  />
+                </span>
+                <Button
+                  onClick={() => {
+                    navigate("/amigo");
+                  }}
+                  className="bg-gradient-to-r from-black to-teal-600 font-urbanistNormal hover:from-white hover:to-white hover:text-black mt-8"
+                >
+                  View Project
+                </Button>
+              </div>
+              <div className="flex p-8 gap-4 flex-row hidden md:flex">
+                <ImageCarousel images={[amigo5, amigo2, amigo6]} />
+              </div>
+            </div>
+            <div className="flex flex-row-reverse bg-neutral-800 md:px-32">
+              <div className="flex flex-1 flex-col p-8 md:text-left text-center justify-evenly">
+                <span className="text-2xl md:text-4xl">NFT Marketplace</span>
+                <div className="flex flex-1 md:hidden my-8">
+                  <img
+                    className="w-full object-contain rounded-2xl"
+                    src={nft1}
+                  />
+                </div>
+                <span className="leading-6 items-start flex flex-col">
+                  <ListItem
+                    text="A marketplace website for buying and selling NFTs"
+                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
+                    size="small"
+                  />
+                  <ListItem
+                    text="Explore trending collections, place bids and own valuable NFTs"
+                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
+                    size="small"
+                  />
+                  <ListItem
+                    text="Chat with fellow shoppers, checkout their collection"
+                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
+                    size="small"
+                  />
+                </span>
+                <Button
+                  onClick={() => {
+                    navigate("/nft");
+                  }}
+                  className="bg-gradient-to-r from-black to-teal-600 font-urbanistNormal hover:from-white hover:to-white hover:text-black mt-8"
+                >
+                  View Project
+                </Button>
+              </div>
+              <div className="flex p-8 gap-4 flex-row hidden md:flex">
+                <ImageCarousel images={[nft5, nft1, nft2]} />
+              </div>
+            </div>
           </div>
         </div>
-        <div className="flex flex-row">
-          <div>
-            <span className="text-white">education</span>
-          </div>
-          <div>
-            <span className="text-white">experience</span>
-          </div>
-        </div>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </>
   );

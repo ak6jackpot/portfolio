@@ -8,9 +8,9 @@ import xcode from "../assets/images/xcode.png";
 import aws from "../assets/images/aws.png";
 import amplitude from "../assets/images/amplitude.png";
 import sentry from "../assets/images/sentry.png";
-import ListItem from "components/ListItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
+import ListItem from "components/ListItem";
 
 export default function ExperiencePage() {
   return (
@@ -51,22 +51,22 @@ export default function ExperiencePage() {
                 />
               </div>
               <ListItem
-                text="Built the SuperPe application from scratch, which has currently 1M+ downloads on Google PlayStore."
+                label="Built the SuperPe application from scratch, which has currently 1M+ downloads on Google PlayStore."
                 icon={<FontAwesomeIcon icon={faHandPointRight} />}
                 size="small"
               />
               <ListItem
-                text="Integrated multiple payment gateway SDKs like Juspay, Razorpay, Easebuzz etc. for a robust payment experience."
+                label="Integrated multiple payment gateway SDKs like Juspay, Razorpay, Easebuzz etc. for a robust payment experience."
                 icon={<FontAwesomeIcon icon={faHandPointRight} />}
                 size="small"
               />
               <ListItem
-                text="Integrated tools like Amplitude, Google Analytics, FbSDK, OneSignal and Sentry for effective monitoring, marketing, and error tracking."
+                label="Integrated tools like Amplitude, Google Analytics, FbSDK, OneSignal and Sentry for effective monitoring, marketing, and error tracking."
                 icon={<FontAwesomeIcon icon={faHandPointRight} />}
                 size="small"
               />
               <ListItem
-                text="Setup pipelines to deploy builds to both - Google PlayConsole and AppStore Connect."
+                label="Setup pipelines to deploy builds to both - Google PlayConsole and AppStore Connect."
                 icon={<FontAwesomeIcon icon={faHandPointRight} />}
                 size="small"
               />

@@ -12,8 +12,8 @@ import { Button } from "components/Button";
 import ListItem from "components/ListItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
-import ImageCarousel from "components/ImageCarousel";
 import { useNavigate } from "react-router-dom";
+import CircularCarousel from "components/CircularCarousel";
 
 export default function WorksPage() {
   const navigate = useNavigate();
@@ -43,17 +43,17 @@ export default function WorksPage() {
                 </div>
                 <span className="leading-6 items-start flex flex-col">
                   <ListItem
-                    text="A travel companion app that takes care of your entire trip"
+                    label="A travel companion app that takes care of your entire trip"
                     icon={<FontAwesomeIcon icon={faHandPointRight} />}
                     size="small"
                   />
                   <ListItem
-                    text="Planning itineraries based on your preferences, nearby suggestions, local translations"
+                    label="Planning itineraries based on your preferences, nearby suggestions, local translations"
                     icon={<FontAwesomeIcon icon={faHandPointRight} />}
                     size="small"
                   />
                   <ListItem
-                    text="Collaborative and offline functionalities for ease of use"
+                    label="Collaborative and offline functionalities for ease of use"
                     icon={<FontAwesomeIcon icon={faHandPointRight} />}
                     size="small"
                   />
@@ -68,7 +68,7 @@ export default function WorksPage() {
                 </Button>
               </div>
               <div className="flex p-8 gap-4 flex-row hidden md:flex">
-                <ImageCarousel images={[amigo5, amigo2, amigo6]} />
+                <CircularCarousel images={[amigo5, amigo2, amigo6]} />
               </div>
             </div>
             <div className="flex flex-row-reverse bg-neutral-800 md:px-32">
@@ -82,17 +82,17 @@ export default function WorksPage() {
                 </div>
                 <span className="leading-6 items-start flex flex-col">
                   <ListItem
-                    text="A marketplace website for buying and selling NFTs"
+                    label="A marketplace website for buying and selling NFTs"
                     icon={<FontAwesomeIcon icon={faHandPointRight} />}
                     size="small"
                   />
                   <ListItem
-                    text="Explore trending collections, place bids and own valuable NFTs"
+                    label="Explore trending collections, place bids and own valuable NFTs"
                     icon={<FontAwesomeIcon icon={faHandPointRight} />}
                     size="small"
                   />
                   <ListItem
-                    text="Chat with fellow shoppers, checkout their collection"
+                    label="Chat with fellow shoppers, checkout their collection"
                     icon={<FontAwesomeIcon icon={faHandPointRight} />}
                     size="small"
                   />
@@ -107,7 +107,7 @@ export default function WorksPage() {
                 </Button>
               </div>
               <div className="flex p-8 gap-4 flex-row hidden md:flex">
-                <ImageCarousel images={[nft5, nft1, nft2]} />
+                <CircularCarousel images={[nft5, nft1, nft2]} />
               </div>
             </div>
           </div>

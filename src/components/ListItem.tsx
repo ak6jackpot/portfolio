@@ -60,7 +60,12 @@ export default function ListItem({ ...props }: Props) {
                 : ""
             }`}
           >
-            {description}
+            {description.split("\n").map((line, index) => (
+              <React.Fragment key={index}>
+                {line}
+                <br className="hidden md:block" />
+              </React.Fragment>
+            ))}
           </span>
         </div>
       );

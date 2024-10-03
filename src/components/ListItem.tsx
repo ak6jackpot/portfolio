@@ -22,10 +22,10 @@ export default function ListItem({ ...props }: Props) {
   switch (variant) {
     case "label":
       return (
-        <div className="flex flex-row items-center justify-center my-1">
+        <div className="flex flex-row items-center border-b-[1px] w-full justify-start py-2 md:py-4">
           {icon}
           <span
-            className={`font-urbanistNormal ml-2 ${
+            className={`font-urbanistNormal text-neutral-300 ml-2 ${
               size == "large"
                 ? "md:text-xl text-lg"
                 : size == "small"
@@ -41,7 +41,7 @@ export default function ListItem({ ...props }: Props) {
       return (
         <div className="flex flex-col items-start justify-center border-b-[1px] py-4 w-full border-neutral-500">
           <span
-            className={`font-urbanistNormal ${
+            className={`font-urbanistNormal text-neutral-300 ${
               size == "large"
                 ? "md:text-xl text-lg"
                 : size == "small"

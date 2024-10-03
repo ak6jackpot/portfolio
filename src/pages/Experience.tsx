@@ -21,13 +21,15 @@ export default function ExperiencePage() {
       </Helmet>
       <div className="flex flex-col items-center justify-start w-full font-urbanistNormal gap-[70px] bg-neutral-900">
         <Header current="exp" />
-        <div className="flex mt-24 flex-col text-white">
-          <span className="text-4xl md:text-6xl md:p-4 mx-8 md:mx-32 font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
-            Work Experience
-          </span>
+        <div className="flex mt-24 flex-col text-white text-center">
+          <div className="inline-block">
+            <span className="text-4xl md:text-6xl md:p-4 font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
+              Work Experience
+            </span>
+          </div>
 
           <div className="flex flex-row bg-neutral-900 md:px-32">
-            <div className="flex flex-1 flex-col p-8 justify-evenly">
+            <div className="flex flex-1 flex-col p-8 justify-evenly text-left">
               <div className="flex flex-row justify-between items-end md:mb-4">
                 <div className="flex flex-col">
                   <span className="text-2xl md:text-4xl ">SuperPe</span>

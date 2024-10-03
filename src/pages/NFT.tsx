@@ -49,13 +49,14 @@ export default function NFT() {
                   <div className="flex flex-col md:w-[80%] md:pr-8">
                     <span className="text-lg md:text-2xl">Overview</span>
                     <span className="text-md md:text-lg text-neutral-500 my-4">
-                      Amigo is a travel app available to download on Google
-                      PlayStore. It is a one stop solution to all your travel
-                      needs. From discovering locations to planning trips, all
-                      based on your personal preferences, Amigo does it all. You
-                      can create itineraries, share them with others, track your
-                      entire trip - including directions to your next
-                      destination, expenses, things to shop etc.
+                      This is a marketplace website for buying and selling NFTs.
+                      You can list your NFTs on the market and other customers
+                      can place bids on it. The winning bid takes home the
+                      digital asset. Explore other creators and their
+                      collections, checkout special art pieces that grab your
+                      attention, and bid! You also chat and have conversation
+                      with fellow shoppers or creators to get knowledge, connect
+                      in the real world, and have fun.
                     </span>
                   </div>
 
@@ -93,44 +94,38 @@ export default function NFT() {
 
                 <ListItem
                   variant="description"
-                  label="Personalized Itineraries"
-                  description={`Amigo allows users to create fully customizable itineraries tailored to their preferences, whether it’s selecting destinations, activities, or travel dates.\nThis flexibility is key to addressing the demand for personalized experiences in travel.`}
+                  label="Vast collection of Digital Artworks"
+                  description={`Discover an extensive and ever-growing collection of NFTs from talented creators all around the globe. Explore the Market section to find\nrare and unique digital assets that cater to your interests, whether you're a seasoned collector or new to the NFT space.`}
                   size="small"
                 />
                 <ListItem
                   variant="description"
-                  label="Simplified Travel Planning"
-                  description={`The app consolidates all aspects of trip planning—such as selecting destinations, organizing accommodation, and mapping out activities—into one platform,\nreducing the need to juggle multiple apps and sources of information.`}
+                  label="Wishlist items"
+                  description={`Found something you love? Simply like and save any NFTs that catch your eye, so you can easily revisit them at your convenience.\nAll your wishlisted items will be neatly organized in the Saved section, ensuring quick access to your favorite pieces whenever you're ready to engage.`}
                   size="small"
                 />
                 <ListItem
                   variant="description"
-                  label="Collaborative Features"
-                  description={`Users can share itineraries with friends, family, or travel companions, allowing for real-time collaboration.\nThis makes group trip planning easier and reduces communication issues.`}
+                  label="Digital Walet"
+                  description={`Seamlessly load funds into your digital wallet using a variety of payment methods, including credit cards, debit cards, and net banking.\nOnce your wallet is funded, you’ll be able to participate in auctions and place bids on any items of interest using your wallet balance, streamlining the transaction process.`}
                   size="small"
                 />
                 <ListItem
                   variant="description"
-                  label="Integrated Tools"
-                  description={`Amigo offers integrated maps, checklists, and reminders to ensure that travelers have all the necessary tools at their fingertips for a seamless trip.\nThis organization helps eliminate the stress of forgetting important tasks.`}
+                  label="Ongoing Bids"
+                  description={`Every product listed in the marketplace has a designated bidding window, and once that time expires, the sale closes. To participate in the auction,\nmake sure you place your bid before the clock runs out. You can monitor and track all the ongoing bids you’ve placed within the Active Bids section.`}
                   size="small"
                 />
                 <ListItem
                   variant="description"
-                  label="Smart Suggestions"
-                  description={`By offering local recommendations, weather forecasts, and activity suggestions based on a user’s preferences,\nAmigo helps users find relevant experiences and makes the process of choosing activities less daunting.`}
+                  label="Messaging"
+                  description={`Have questions or want to discuss a deal? Our chat feature allows you to connect with other buyers and creators directly. Whether it’s to clarify details\nor negotiate terms, communicating within the platform ensures smoother and more informed transactions.`}
                   size="small"
                 />
                 <ListItem
                   variant="description"
-                  label="Offline Access"
-                  description={`The app’s offline mode ensures users can access their itineraries and plans even without internet connectivity, which is essential for international travel and remote destinations.`}
-                  size="small"
-                />
-                <ListItem
-                  variant="description"
-                  label="Expense Tracking and Notifications:"
-                  description={`Amigo simplifies budgeting and spending by offering expense tracking tools and notifications for bookings and payments,\ngiving users peace of mind and control over their finances during travel.`}
+                  label="Contact Support"
+                  description={`For any questions, visit our Help Center, where you'll find a comprehensive list of Frequently Asked Questions. If you still need help, our dedicated support team\nis just an email away, ready to assist you with any technical issues, inquiries, or concerns you may have.`}
                   size="small"
                 />
               </div>

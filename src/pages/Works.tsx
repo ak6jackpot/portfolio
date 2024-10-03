@@ -27,9 +27,11 @@ export default function WorksPage() {
       <div className="flex flex-col items-center justify-start w-full font-urbanistNormal gap-[70px] bg-neutral-900">
         <Header current="works" />
         <div className="flex flex-col text-center text-white mt-24">
-          <span className="text-4xl md:text-6xl md:p-4 mx-8 md:mx-60 font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
-            Projects
-          </span>
+          <div className="inline-block">
+            <span className="text-4xl md:text-6xl md:p-4 mx-8 md:mx-60 font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
+              Projects
+            </span>
+          </div>
 
           <div className="flex flex-col justify-center md:mt-8">
             <div className="flex flex-row bg-neutral-900 md:px-32">

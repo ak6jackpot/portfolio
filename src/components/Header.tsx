@@ -25,7 +25,7 @@ export default function Header({ ...props }: Props) {
         src={AK_cover}
         alt="image_one"
         className="h-[40px] hidden md:block"
-        onClick={toggleMenu}
+        onClick={() => navigate("/")}
       />
       <FontAwesomeIcon
         icon={faBars}
@@ -51,14 +51,11 @@ export default function Header({ ...props }: Props) {
         >
           Projects
         </Button>
-        <Button
-          className={current == "contact" ? "border-b-4 border-red-300" : null}
-          onClick={() => navigate("/contact")}
-        >
-          Contact
-        </Button>
       </div>
-      <Button className="bg-gradient-to-r from-black to-teal-600 text-white font-urbanistNormal hover:from-white hover:to-white hover:text-black">
+      <Button
+        onClick={() => navigate("/contact")}
+        className="bg-gradient-to-r from-black to-teal-600 text-white font-urbanistNormal hover:from-white hover:to-white hover:text-black"
+      >
         Let's Talk
       </Button>
 
@@ -92,16 +89,9 @@ export default function Header({ ...props }: Props) {
             Projects
           </Button>
           <Button
-            className={current === "contact" ? "border-b-4 border-red-300" : ""}
-            onClick={() => {
-              navigate("/contact");
-              toggleMenu();
-            }}
+            onClick={() => navigate("/contact")}
+            className="bg-gradient-to-r from-black to-teal-600 text-white font-urbanistNormal hover:from-white hover:to-white hover:text-black"
           >
-            Contact
-          </Button>
-          {/* Let's Talk button for mobile */}
-          <Button className="bg-gradient-to-r from-black to-teal-600 text-white font-urbanistNormal hover:from-white hover:to-white hover:text-black">
             Let's Talk
           </Button>
         </div>

@@ -20,80 +20,119 @@ export default function Header({ ...props }: Props) {
   };
 
   return (
-    <div className="flex flex-row justify-between items-center w-full px-4 md:px-[10%] fixed top-0 z-50 py-[10px] text-white bg-neutral-900 border-b-2 border-slate-600">
-      <img
-        src={AK_cover}
-        alt="image_one"
-        className="h-[40px] hidden md:block"
-        onClick={() => navigate("/")}
-      />
-      <FontAwesomeIcon
-        icon={faBars}
-        className="h-[28px] md:hidden"
-        onClick={toggleMenu}
-      />
-      <div className="md:flex hidden md:block md:flex-row md:justify-between font-urbanistNormal items-center">
-        <Button
-          className={current == "about" ? "border-b-4 border-red-300" : null}
+    <div className="flex flex-row justify-between items-center w-full h-[72px] fixed top-0 z-50 py-[10px] text-white bg-neutral-900">
+      <div className="flex flex-1 border-b-2 border-neutral-600 items-center md:items-start h-full justify-start px-8 md:px-0 md:justify-center">
+        <img
+          src={AK_cover}
+          alt="image_one"
+          className="h-[40px] hidden md:block cursor-pointer"
+          onClick={() => navigate("/")}
+        />
+        <FontAwesomeIcon
+          icon={faBars}
+          className="h-[28px] md:hidden cursor-pointer"
+          onClick={toggleMenu}
+        />
+      </div>
+      <div className="md:flex hidden flex-3 md:block md:flex-row md:justify-between h-full cursor-pointer font-urbanistNormal items-end">
+        <div
+          className={`flex flex-1 ${
+            current == "about" ? "" : "border-b-2 border-neutral-600"
+          } items-center justify-center`}
           onClick={() => navigate("/about")}
         >
-          About
-        </Button>
-        <Button
-          className={current == "exp" ? "border-b-4 border-red-300" : null}
+          <div className="flex flex-col w-full items-center">
+            <span className="py-4">About</span>
+            {current == "about" && (
+              <div className="h-[2px] w-full bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500"></div>
+            )}
+          </div>
+        </div>
+        <div
+          className={`flex flex-1 ${
+            current == "exp" ? "" : "border-b-2 border-neutral-600"
+          } items-center justify-center`}
           onClick={() => navigate("/exp")}
         >
-          Experience
-        </Button>
-        <Button
-          className={current == "works" ? "border-b-4 border-red-300" : null}
+          <div className="flex flex-col w-full items-center">
+            <span className="py-4">Experience</span>
+            {current == "exp" && (
+              <div className="h-[2px] w-full bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500"></div>
+            )}
+          </div>
+        </div>
+        <div
+          className={`flex flex-1 ${
+            current == "works" ? "" : "border-b-2 border-neutral-600"
+          } items-center justify-center`}
           onClick={() => navigate("/works")}
         >
-          Projects
+          <div className="flex flex-col w-full items-center">
+            <span className="py-4">Projects</span>
+            {current == "works" && (
+              <div className="h-[2px] w-full bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500"></div>
+            )}
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-1 border-b-2 border-neutral-600 items-start h-full justify-end px-8 md:px-0 md:justify-center">
+        <Button
+          onClick={() => navigate("/contact")}
+          className="bg-gradient-to-r from-black to-teal-600 text-white font-urbanistNormal hover:from-white hover:to-white hover:text-black"
+        >
+          Let's Talk
         </Button>
       </div>
-      <Button
-        onClick={() => navigate("/contact")}
-        className="bg-gradient-to-r from-black to-teal-600 text-white font-urbanistNormal hover:from-white hover:to-white hover:text-black"
-      >
-        Let's Talk
-      </Button>
 
       {isMenuOpen && (
-        <div className="absolute top-[80px] left-0 w-full bg-neutral-900 text-white flex flex-col items-center space-y-4 py-8 md:hidden z-10">
-          <Button
-            className={current === "about" ? "border-b-4 border-red-300" : ""}
-            onClick={() => {
-              navigate("/about");
-              toggleMenu();
-            }}
+        <div className="absolute top-[72px] left-0 w-full border-b-4 border-neutral-600 rounded-md bg-neutral-900 text-white flex flex-col items-center space-y-4 pb-8 md:hidden z-10">
+          <div
+            className={`flex flex-1 w-[40%] ${
+              current == "about" ? "" : "border-b-2 border-neutral-600"
+            } items-center justify-center`}
+            onClick={() => navigate("/about")}
           >
-            About
-          </Button>
-          <Button
-            className={current === "exp" ? "border-b-4 border-red-300" : ""}
-            onClick={() => {
-              navigate("/exp");
-              toggleMenu();
-            }}
+            <div className="flex flex-col w-full items-center">
+              <span className="py-4">About</span>
+              {current == "about" && (
+                <div className="h-[2px] w-full bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500"></div>
+              )}
+            </div>
+          </div>
+          <div
+            className={`flex flex-1 w-[40%] ${
+              current == "exp" ? "" : "border-b-2 border-neutral-600"
+            } items-center justify-center`}
+            onClick={() => navigate("/exp")}
           >
-            Experience
-          </Button>
-          <Button
-            className={current === "works" ? "border-b-4 border-red-300" : ""}
-            onClick={() => {
-              navigate("/works");
-              toggleMenu();
-            }}
+            <div className="flex flex-col w-full items-center">
+              <span className="py-4">Experience</span>
+              {current == "exp" && (
+                <div className="h-[2px] w-full bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500"></div>
+              )}
+            </div>
+          </div>
+          <div
+            className={`flex flex-1 w-[40%] ${
+              current == "works" ? "" : "border-b-2 border-neutral-600"
+            } items-center justify-center`}
+            onClick={() => navigate("/works")}
           >
-            Projects
-          </Button>
-          <Button
-            onClick={() => navigate("/contact")}
-            className="bg-gradient-to-r from-black to-teal-600 text-white font-urbanistNormal hover:from-white hover:to-white hover:text-black"
-          >
-            Let's Talk
-          </Button>
+            <div className="flex flex-col w-full items-center">
+              <span className="py-4">Projects</span>
+              {current == "works" && (
+                <div className="h-[2px] w-full bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500"></div>
+              )}
+            </div>
+          </div>
+          <div className="pt-4">
+            <Button
+              onClick={() => navigate("/contact")}
+              className="bg-gradient-to-r from-black to-teal-600 text-white font-urbanistNormal hover:from-white hover:to-white hover:text-black"
+            >
+              Let's Talk
+            </Button>
+          </div>
         </div>
       )}
     </div>

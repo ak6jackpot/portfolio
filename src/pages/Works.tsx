@@ -1,5 +1,5 @@
 import Header from "components/Header";
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import amigo2 from "../assets/images/amigo2.jpg";
 import amigo5 from "../assets/images/amigo5.jpg";
@@ -17,6 +17,10 @@ import CircularCarousel from "components/CircularCarousel";
 
 export default function WorksPage() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>

@@ -5,7 +5,7 @@ import Footer from "components/Footer";
 import Header from "components/Header";
 import ImageCarousel from "components/ImageCarousel";
 import ListItem from "components/ListItem";
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import amigo1 from "../assets/images/amigo1.jpg";
 import amigo2 from "../assets/images/amigo2.jpg";
@@ -23,6 +23,10 @@ import tripadvisor from "../assets/images/tripadvisor.png";
 import xcode from "../assets/images/xcode.png";
 
 export default function Amigo() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Helmet>

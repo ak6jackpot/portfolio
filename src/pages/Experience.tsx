@@ -1,6 +1,6 @@
 import Footer from "components/Footer";
 import Header from "components/Header";
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import superpe from "../assets/images/superpe.jpg";
 import react from "../assets/images/react.png";
@@ -13,6 +13,10 @@ import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
 import ListItem from "components/ListItem";
 
 export default function ExperiencePage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Helmet>

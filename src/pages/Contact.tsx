@@ -1,5 +1,5 @@
 import Header from "components/Header";
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import facebook from "../assets/images/Social/facebook.png";
 import github from "../assets/images/Social/github.png";
@@ -11,6 +11,10 @@ import { Button } from "components/Button";
 import ProfilePic from "../assets/images/ProfilePic.png";
 
 export default function ContactPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Helmet>

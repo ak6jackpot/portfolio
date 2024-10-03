@@ -61,7 +61,9 @@ export default function AboutPage() {
     setTimeout(() => {
       setAboutMe("scale-100");
     }, 100);
+    window.scrollTo(0, 0);
   }, []);
+
   return (
     <>
       <Helmet>

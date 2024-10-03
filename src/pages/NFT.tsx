@@ -5,7 +5,7 @@ import Footer from "components/Footer";
 import Header from "components/Header";
 import ImageCarousel from "components/ImageCarousel";
 import ListItem from "components/ListItem";
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import aws from "../assets/images/aws.png";
 import css from "../assets/images/css.png";
@@ -21,6 +21,10 @@ import react from "../assets/images/react.png";
 import tailwind from "../assets/images/tailwind.png";
 
 export default function NFT() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Helmet>

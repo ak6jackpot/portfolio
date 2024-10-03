@@ -73,7 +73,7 @@ export default function AboutPage() {
       <div className="flex flex-col items-center justify-start w-full h-auto font-urbanistThin text-white gap-[42px] bg-neutral-900">
         <Header current="about" />
         <div
-          className={`md:mx-32 ${aboutMe} transform transition duration-1000 mt-24 md:mt-32 border-0 bg-black border-white m-4 rounded-3xl items-center flex flex-col md:flex-row py-2`}
+          className={`md:mx-32 ${aboutMe} transform transition duration-1000 mt-24 md:mt-32 m-4 rounded-3xl items-center flex flex-col md:flex-row py-2`}
         >
           <div className="flex-1 hidden md:block align-center justify-center ml-2">
             <img
@@ -87,7 +87,7 @@ export default function AboutPage() {
               src={bits_full}
             />
           </div>
-          <div className="flex flex-col items-start flex-2 md:pl-4 ml-4">
+          <div className="flex flex-col items-start flex-2 md:pl-4 mx-4">
             <span className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
               About Me
             </span>
@@ -98,21 +98,27 @@ export default function AboutPage() {
             <div className="flex flex-row py-4 justify-between md:space-x-8">
               <div className="flex flex-col items-start md:items-center">
                 <span className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
-                  3+
+                  9+
                 </span>
-                <span className=" font-urbanistNormal">Apps Developed</span>
+                <span className=" font-urbanistNormal my-2 text-sm pr-2 md:text-lg">
+                  Apps & Websites Developed
+                </span>
               </div>
               <div className="flex flex-col items-start md:items-center">
                 <span className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
-                  20+
+                  75+
                 </span>
-                <span className=" font-urbanistNormal">XYZ done</span>
+                <span className=" font-urbanistNormal my-2 text-sm pr-2 md:text-lg">
+                  Questions Answered on Leetcode
+                </span>
               </div>
               <div className="flex flex-col items-start md:items-center">
                 <span className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
-                  1500+
+                  950+
                 </span>
-                <span className=" font-urbanistNormal">Github Commits</span>
+                <span className=" font-urbanistNormal my-2 text-sm pr-2 md:text-lg">
+                  Github Contributions
+                </span>
               </div>
             </div>
             <Button

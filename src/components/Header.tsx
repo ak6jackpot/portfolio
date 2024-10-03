@@ -22,12 +22,14 @@ export default function Header({ ...props }: Props) {
   return (
     <div className="flex flex-row justify-between items-center w-full h-[72px] fixed top-0 z-50 py-[10px] text-white bg-neutral-900">
       <div className="flex flex-1 border-b-2 border-neutral-600 items-center md:items-start h-full justify-start px-8 md:px-0 md:justify-center">
-        <img
-          src={AK_cover}
-          alt="image_one"
-          className="h-[40px] hidden md:block cursor-pointer"
+        <div
+          className="h-[40px] aspect-square flex items-center justify-center hidden md:block cursor-pointer bg-gradient-to-r from-violet-900 to-amber-500 rounded-full"
           onClick={() => navigate("/")}
-        />
+        >
+          <span className="text-white flex items-center justify-center w-full h-full text-xl">
+            AK
+          </span>
+        </div>
         <FontAwesomeIcon
           icon={faBars}
           className="h-[28px] md:hidden cursor-pointer"

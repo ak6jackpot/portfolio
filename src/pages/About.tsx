@@ -67,8 +67,8 @@ export default function AboutPage() {
   return (
     <>
       <Helmet>
-        <title>Portfolio</title>
-        <meta name="Akshat Singh" content="Front End Developer Portfolio" />
+        <title>About</title>
+        <meta name="Akshat Singh" />
       </Helmet>
       <div className="flex flex-col items-center justify-start w-full h-auto font-urbanistThin text-white gap-[42px] bg-neutral-900">
         <Header current="about" />
@@ -106,14 +106,6 @@ export default function AboutPage() {
               </div>
               <div className="flex flex-col items-start md:items-center">
                 <span className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
-                  75+
-                </span>
-                <span className=" font-urbanistNormal my-2 text-sm pr-2 md:text-lg">
-                  Questions Answered on Leetcode
-                </span>
-              </div>
-              <div className="flex flex-col items-start md:items-center">
-                <span className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
                   950+
                 </span>
                 <span className=" font-urbanistNormal my-2 text-sm pr-2 md:text-lg">
@@ -121,21 +113,19 @@ export default function AboutPage() {
                 </span>
               </div>
             </div>
-            <Button
-              onClick={() => navigate("/contact")}
-              className="bg-gradient-to-r from-black to-teal-600 font-urbanistNormal hover:from-white hover:to-white hover:text-black"
-            >
-              Let's Talk
-            </Button>
           </div>
         </div>
 
         <div className="flex flex-col text-center">
-          <div className="inline-block">
+          <div className="hidden md:block inline-block">
             <span className="text-4xl md:text-6xl font-urbanistNormal md:p-4 mx-8 md:mx-60 font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
               What I bring to the table
             </span>
           </div>
+
+          <span className="text-4xl md:hidden md:text-6xl font-urbanistNormal md:p-4 mx-8 md:mx-60 font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
+            What I bring to the table
+          </span>
 
           <div className="h-screen flex flex-col justify-center sticky top-8 md:top-0">
             <div className="flex flex-row bg-neutral-900 md:px-32">

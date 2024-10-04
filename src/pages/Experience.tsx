@@ -20,8 +20,8 @@ export default function ExperiencePage() {
   return (
     <>
       <Helmet>
-        <title>Portfolio</title>
-        <meta name="Akshat Singh" content="Front End Developer Portfolio" />
+        <title>Experience</title>
+        <meta name="Akshat Singh" />
       </Helmet>
       <div className="flex flex-col items-center justify-start w-full font-urbanistNormal gap-[70px] bg-neutral-900">
         <Header current="exp" />

@@ -25,8 +25,8 @@ export default function WorksPage() {
   return (
     <>
       <Helmet>
-        <title>Portfolio</title>
-        <meta name="Akshat Singh" content="Front End Developer Portfolio" />
+        <title>Projects</title>
+        <meta name="Akshat Singh" />
       </Helmet>
       <div className="flex flex-col items-center justify-start w-full font-urbanistNormal gap-[70px] bg-neutral-900">
         <Header current="works" />
@@ -68,7 +68,7 @@ export default function WorksPage() {
                   onClick={() => {
                     navigate("/amigo");
                   }}
-                  className="bg-gradient-to-r from-black to-teal-600 font-urbanistNormal hover:from-white hover:to-white hover:text-black mt-8"
+                  className="bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 font-urbanistNormal hover:from-white hover:to-white hover:text-black mt-8"
                 >
                   View Project
                 </Button>
@@ -107,7 +107,7 @@ export default function WorksPage() {
                   onClick={() => {
                     navigate("/nft");
                   }}
-                  className="bg-gradient-to-r from-black to-teal-600 font-urbanistNormal hover:from-white hover:to-white hover:text-black mt-8"
+                  className="bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 font-urbanistNormal hover:from-white hover:to-white hover:text-black mt-8"
                 >
                   View Project
                 </Button>

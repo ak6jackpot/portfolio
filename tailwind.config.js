@@ -38,6 +38,7 @@ module.exports = {
       },
       backgroundImage: {
         gradient: "linear-gradient(90deg, #ffb039,#ffb03900)",
+        pattern: "url('./src/assets/images/abstract.jpg')",
       },
     },
   },

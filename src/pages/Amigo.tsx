@@ -30,11 +30,11 @@ export default function Amigo() {
   return (
     <>
       <Helmet>
-        <title>Portfolio</title>
-        <meta name="Akshat Singh" content="Front End Developer Portfolio" />
+        <title>Amigo</title>
+        <meta name="Akshat Singh" />
       </Helmet>
       <div className="flex flex-col items-center justify-start w-full font-urbanistNormal gap-[70px] bg-neutral-900">
-        <Header />
+        <Header current="amigo" />
         <div className="flex flex-col justify-center mt-8 text-white">
           <div className="flex flex-row bg-neutral-900 md:px-32">
             <div className="flex flex-1 flex-col pt-8 md:text-left text-center justify-evenly">
@@ -44,12 +44,12 @@ export default function Amigo() {
                 />
               </div>
               <div className="flex flex-row md:px-8 justify-between items-center">
-                <span className="text-sm md:text-lg text-neutral-500">
-                  Jun 2024 onwards
-                </span>
-                <span className="text-2xl md:text-4xl">Amigo</span>
                 <span className="text-sm md:text-lg font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
                   Mobile App Development
+                </span>
+                <span className="text-2xl md:text-4xl">Amigo</span>
+                <span className="text-sm md:text-lg text-neutral-500">
+                  Jun 2024 onwards
                 </span>
               </div>
               <div className="leading-6 items-start flex flex-col my-8 px-4 text-left">
@@ -75,7 +75,7 @@ export default function Amigo() {
                     >
                       <Button
                         onClick={() => {}}
-                        className="bg-gradient-to-r w-full from-black to-teal-600 font-urbanistNormal hover:from-white hover:to-white hover:text-black"
+                        className="bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 w-full font-urbanistNormal hover:from-white hover:to-white hover:text-black"
                       >
                         See it in action!
                       </Button>
@@ -87,7 +87,7 @@ export default function Amigo() {
                     >
                       <Button
                         onClick={() => {}}
-                        className="bg-gradient-to-r w-full from-black to-teal-600 font-urbanistNormal hover:from-white hover:to-white hover:text-black"
+                        className="bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 w-full font-urbanistNormal hover:from-white hover:to-white hover:text-black"
                       >
                         Github
                         <FontAwesomeIcon icon={faArrowUpRightFromSquare} />

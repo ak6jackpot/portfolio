@@ -18,8 +18,8 @@ export default function ContactPage() {
   return (
     <>
       <Helmet>
-        <title>Portfolio</title>
-        <meta name="Akshat Singh" content="Front End Developer Portfolio" />
+        <title>Contact</title>
+        <meta name="Akshat Singh" />
       </Helmet>
       <div className="flex flex-col items-center justify-start w-full h-screen font-urbanistNormal gap-[70px] bg-neutral-900">
         <Header current="contact" />

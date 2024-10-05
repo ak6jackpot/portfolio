@@ -74,7 +74,10 @@ export default function WorksPage() {
                 </Button>
               </div>
               <div className="flex p-8 gap-4 flex-row hidden md:flex">
-                <CircularCarousel images={[amigo5, amigo2, amigo6]} />
+                <img
+                  className="object-contain rounded-2xl w-[200px]"
+                  src={amigo2}
+                />
               </div>
             </div>
             <div className="flex flex-row-reverse bg-neutral-800 md:px-32">
@@ -113,7 +116,10 @@ export default function WorksPage() {
                 </Button>
               </div>
               <div className="flex p-8 gap-4 flex-row hidden md:flex">
-                <CircularCarousel images={[nft5, nft1, nft2]} />
+                <img
+                  className="object-cover rounded-2xl w-[500px]"
+                  src={nft1}
+                />
               </div>
             </div>
           </div>

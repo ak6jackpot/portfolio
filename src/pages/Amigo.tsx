@@ -38,17 +38,19 @@ export default function Amigo() {
         <div className="flex flex-col justify-center mt-8 text-white">
           <div className="flex flex-row bg-neutral-900 md:px-32">
             <div className="flex flex-1 flex-col pt-8 md:text-left text-center justify-evenly">
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center h-[250px] md:h-[450px]">
                 <ImageCarousel
                   images={[amigo1, amigo2, amigo3, amigo4, amigo5, amigo6]}
                 />
               </div>
               <div className="flex flex-row md:px-8 justify-between items-center">
-                <span className="text-sm md:text-lg font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
+                <span className="text-sm md:text-lg font-extrabold flex flex-1 bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
                   Mobile App Development
                 </span>
-                <span className="text-2xl md:text-4xl">Amigo</span>
-                <span className="text-sm md:text-lg text-neutral-500">
+                <span className="text-2xl md:text-4xl flex-1 md:flex-3 justify-center flex">
+                  Amigo
+                </span>
+                <span className="text-sm md:text-lg flex flex-1 justify-end text-neutral-500">
                   Jun 2024 onwards
                 </span>
               </div>

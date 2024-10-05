@@ -36,18 +36,20 @@ export default function NFT() {
         <div className="flex flex-col justify-center mt-8 text-white">
           <div className="flex flex-row bg-neutral-900 md:px-32">
             <div className="flex flex-1 flex-col pt-8 md:text-left text-center justify-evenly">
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center h-[150px] md:h-[300px]">
                 <ImageCarousel
                   images={[nft1, nft2, nft3, nft4, nft5, nft6]}
                   orientaion="landscape"
                 />
               </div>
               <div className="flex flex-row md:px-8 justify-between items-center">
-                <span className="text-sm md:text-lg font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
+                <span className="text-sm md:text-lg font-extrabold flex flex-1 bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
                   Web Development
                 </span>
-                <span className="text-2xl md:text-4xl">NFT Marketplace</span>
-                <span className="text-sm md:text-lg text-neutral-500">
+                <span className="text-lg md:text-4xl flex-2 md:flex-5 justify-center flex">
+                  NFT Marketplace
+                </span>
+                <span className="text-sm md:text-lg flex flex-1 justify-end text-neutral-500">
                   Mar 2024 - Jul 2024
                 </span>
               </div>

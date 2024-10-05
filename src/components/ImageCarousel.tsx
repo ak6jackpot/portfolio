@@ -1,53 +1,120 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-const ImageCarousel = ({ images, orientaion = "portrait" }) => {
-  const [displayImages, setDisplayImages] = useState(images);
-  const arrayRotate = (arr, reverse) => {
-    if (reverse) arr.unshift(arr.pop());
-    else arr.push(arr.shift());
-    return arr;
-  };
+import { useEffect, useRef } from "react";
+
+const useInterval = (
+  callback: () => object | null | void,
+  delay?: number | null
+) => {
+  const savedCallback = useRef<() => null | object | void>(() => null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setDisplayImages((prevImages) => arrayRotate([...prevImages], false));
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [images.length]);
+    savedCallback.current = callback;
+  });
 
-  const portraitForeground = "z-20 w-[100px] md:w-[250px]";
-  const portraitBackground = "z-10 w-[90px] md:w-[220px] opacity-70";
-  const landscapeForeground = "z-20 w-[150px] md:w-[500px]";
-  const landscapeBackground = "z-10 w-[100px] md:w-[300px] opacity-70";
+  useEffect(() => {
+    if (delay !== null) {
+      const interval = setInterval(() => savedCallback.current(), delay || 0);
+      return () => clearInterval(interval);
+    }
+
+    return undefined;
+  }, [delay]);
+};
+
+const Card = ({
+  content,
+  idx,
+  onClick,
+  onMouseEnter,
+  onMouseLeave,
+  orientation,
+}: {
+  content: string;
+  idx: number;
+  onClick: () => void;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+  orientation: string;
+}) => {
+  let style = {};
+
+  if (idx === 0)
+    style = {
+      opacity: 0.4,
+      transform: "translateX(-80%) scale(0.8)",
+      zIndex: 0,
+    };
+  if (idx === 1) style = { zIndex: 1 };
+  if (idx === 2)
+    style = {
+      opacity: 0.4,
+      transform: "translateX(80%) scale(0.8)",
+      zIndex: 0,
+    };
 
   return (
-    <div className="relative w-full flex overflow-hidden items-center justify-center my-8">
-      <div className="flex items-end">
-        {displayImages.slice(0, 3).map((image, index) => (
-          <img
-            key={index}
-            src={image}
-            className={`${
-              index == 0
-                ? orientaion == "portrait"
-                  ? `${portraitBackground} -mr-4`
-                  : `${landscapeBackground} -mr-8`
-                : index == 1
-                ? orientaion == "portrait"
-                  ? `${portraitForeground}`
-                  : `${landscapeForeground}`
-                : orientaion == "portrait"
-                ? `${portraitBackground} -ml-4`
-                : `${landscapeBackground} -ml-8`
-            } object-cover rounded-lg md:rounded-2xl ${
-              orientaion == "portrait" ? "aspect-[1/2]" : "aspect-[3/2]"
-            }`}
-            alt={`Slide ${index}`}
-          />
-        ))}
-      </div>
+    <div
+      className={`absolute ${
+        orientation == "portrait"
+          ? "w-[100px] md:w-[200px]"
+          : "w-[150px] md:w-[400px]"
+      } rounded-lg object-cotain left-0 top-20 right-0 cursor-pointer transform transition duration-700 p-1 ease bg-white flex items-center flex-col justify-center m-auto`}
+      style={style}
+      onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      <img src={content} className="w-full rounded-md h-full" />
     </div>
   );
 };
+
+function ImageCarousel({ images, orientaion = "portrait" }) {
+  const [arr, setArr] = useState(images.slice(0, 3));
+  const [rest, setRest] = useState(images.slice(3));
+
+  const [isScrolling, setIsScrolling] = useState(true);
+
+  const updateArr = (idx?: number) => {
+    const [a, b, c] = arr;
+
+    if (idx === 0) {
+      const lastRem = rest[rest.length - 1];
+      const beforeArr = [lastRem, a, b];
+      const beforeRem = [c, ...rest.slice(0, rest.length - 1)];
+      setArr(beforeArr);
+      setRest(beforeRem);
+    } else {
+      const firstRem = rest[0];
+      const afterArr = [b, c, firstRem];
+      const afterRem = [...rest.slice(1), a];
+      setArr(afterArr);
+      setRest(afterRem);
+    }
+  };
+
+  useInterval(
+    () => {
+      updateArr();
+    },
+    isScrolling ? 3000 : null
+  );
+  return (
+    <div>
+      {arr.map((item, idx) => (
+        <Card
+          key={item}
+          idx={idx}
+          content={item}
+          onClick={() => updateArr(idx)}
+          onMouseEnter={() => setIsScrolling(false)}
+          onMouseLeave={() => setIsScrolling(true)}
+          orientation={orientaion}
+        />
+      ))}
+    </div>
+  );
+}
 
 export default ImageCarousel;

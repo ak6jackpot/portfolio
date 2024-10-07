@@ -1,60 +1,18 @@
 import Header from "components/Header";
-import WavyBorder from "components/WavyBorder";
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import Artwork_0 from "../assets/images/Artworks/Artwork_0.jpg";
-import Artwork_1 from "../assets/images/Artworks/Artwork_1.jpg";
-import Artwork_10 from "../assets/images/Artworks/Artwork_10.jpg";
-import Artwork_11 from "../assets/images/Artworks/Artwork_11.jpg";
-import Artwork_12 from "../assets/images/Artworks/Artwork_12.jpg";
-import Artwork_13 from "../assets/images/Artworks/Artwork_13.jpg";
-import Artwork_2 from "../assets/images/Artworks/Artwork_2.jpg";
-import Artwork_3 from "../assets/images/Artworks/Artwork_3.jpg";
-import Artwork_4 from "../assets/images/Artworks/Artwork_4.jpg";
-import Artwork_5 from "../assets/images/Artworks/Artwork_5.jpg";
-import Artwork_6 from "../assets/images/Artworks/Artwork_6.jpg";
-import Artwork_7 from "../assets/images/Artworks/Artwork_7.jpg";
-import Artwork_8 from "../assets/images/Artworks/Artwork_8.jpg";
-import Artwork_9 from "../assets/images/Artworks/Artwork_9.jpg";
 
-import badminton from "../assets/images/Sports/badminton.jpeg";
-import cricket from "../assets/images/Sports/cricket.jpg";
-import formula1 from "../assets/images/Sports/formula1.jpg";
-import tabletennis from "../assets/images/Sports/tabletennis.jpg";
 import Footer from "components/Footer";
 
+import ListItem from "components/ListItem";
+import UI from "../assets/images/UI.jpg";
 import bits from "../assets/images/bits.png";
 import bits_full from "../assets/images/bits_full.jpeg";
 import mobileDev from "../assets/images/mobileDev.jpg";
-import webDev from "../assets/images/webDev.jpg";
-import UI from "../assets/images/UI.jpg";
 import problemsolving from "../assets/images/problemsolving.jpg";
-import { Button } from "components/Button";
-import ListItem from "components/ListItem";
-import { useNavigate } from "react-router-dom";
+import webDev from "../assets/images/webDev.jpg";
 
 export default function AboutPage() {
-  const artworks = [
-    Artwork_0,
-    Artwork_1,
-    Artwork_2,
-    Artwork_3,
-    Artwork_4,
-    Artwork_5,
-    Artwork_6,
-    Artwork_7,
-    Artwork_8,
-    Artwork_9,
-    Artwork_10,
-    Artwork_11,
-    Artwork_12,
-    Artwork_13,
-  ];
-
-  const sports = [badminton, cricket, formula1, tabletennis];
-
-  const navigate = useNavigate();
-
   const [aboutMe, setAboutMe] = useState("scale-0");
 
   useEffect(() => {

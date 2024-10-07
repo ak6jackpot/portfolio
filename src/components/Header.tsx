@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "./Button";
 import { useNavigate } from "react-router-dom";
-import AK_cover from "../assets/images/AK_cover.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 

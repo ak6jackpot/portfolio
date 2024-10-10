@@ -49,11 +49,19 @@ export default function AboutPage() {
             <span className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
               About Me
             </span>
-            <ListItem label="BITS Pilani CSE graduate" />
-            <ListItem label="Technical expertise in Mobile and Web Development" />
-            <ListItem label="Inherent problem solving skills" />
-            <ListItem label="Good sense of design systems" />
-            <div className="flex flex-row py-4 justify-between md:space-x-8">
+            <div className="hidden md:block">
+              <ListItem label="Graduated in '23 with a degree in Computer Science from BITS Pilani, Pilani Campus." />
+              <ListItem label="Technical proficiency in Mobile and Web Development using React & TSX." />
+              <ListItem label="Natural aptitude for analysing and solving seemingly-tricky challenges." />
+              <ListItem label="Keen understanding of design systems, creating functional & intuitive user interfaces." />
+            </div>
+            <div className="md:hidden">
+              <ListItem label="BITS Pilani CSE graduate" />
+              <ListItem label="Mobile and Web Developer" />
+              <ListItem label="Inherent problem solving skills" />
+              <ListItem label="Good sense of design systems" />
+            </div>
+            <div className="flex flex-row py-4 md:py-12 justify-between md:space-x-20">
               <div className="flex flex-col items-start md:items-center">
                 <span className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
                   9+

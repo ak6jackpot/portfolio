@@ -1,17 +1,15 @@
+import { Button } from "components/Button";
+import Footer from "components/Footer";
 import Header from "components/Header";
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
-import ProfilePic from "../assets/images/ProfilePic.png";
+import { useNavigate } from "react-router-dom";
 import ProfilePic_removebg from "../assets/images/ProfilePic-removebg.png";
-import abstract from "../assets/images/abstract.jpg";
-import Footer from "components/Footer";
-import { Button } from "components/Button";
 import facebook from "../assets/images/Social/facebook.png";
 import github from "../assets/images/Social/github.png";
 import instagram from "../assets/images/Social/instagram.png";
 import linkedin from "../assets/images/Social/linkedin.png";
 import threads from "../assets/images/Social/threads.png";
-import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -24,7 +22,7 @@ export default function HomePage() {
     const pdfUrl = "../../public/Akshat_Resume.pdf";
     const link = document.createElement("a");
     link.href = pdfUrl;
-    link.download = "Akshat_Singh_Resume.pdf";
+    link.download = "Akshat_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

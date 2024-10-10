@@ -1,19 +1,14 @@
+import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button } from "components/Button";
+import Footer from "components/Footer";
 import Header from "components/Header";
+import ListItem from "components/ListItem";
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
-import amigo2 from "../assets/images/amigo2.jpg";
-import amigo5 from "../assets/images/amigo5.jpg";
-import amigo6 from "../assets/images/amigo6.jpg";
-import nft2 from "../assets/images/nft2.png";
-import nft5 from "../assets/images/nft5.png";
-import nft1 from "../assets/images/nft1.png";
-import Footer from "components/Footer";
-import { Button } from "components/Button";
-import ListItem from "components/ListItem";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import CircularCarousel from "components/CircularCarousel";
+import amigo2 from "../assets/images/amigo2.jpg";
+import nft1 from "../assets/images/nft1.png";
 
 export default function WorksPage() {
   const navigate = useNavigate();
@@ -39,7 +34,7 @@ export default function WorksPage() {
 
           <div className="flex flex-col justify-center md:mt-8">
             <div className="flex flex-row bg-neutral-900 md:px-32">
-              <div className="flex flex-1 flex-col p-8 md:text-left text-center justify-evenly">
+              <div className="flex flex-1 flex-col p-8 text-left justify-evenly">
                 <span className="text-2xl md:text-4xl">Amigo</span>
                 <div className="flex flex-1 md:hidden my-8">
                   <img
@@ -47,19 +42,36 @@ export default function WorksPage() {
                     src={amigo2}
                   />
                 </div>
-                <span className="leading-6 items-start flex flex-col">
+                <span className="leading-6 items-start flex flex-col md:hidden">
                   <ListItem
-                    label="A travel companion app that takes care of your entire trip"
+                    label="A one-stop travel app for your trips."
                     icon={<FontAwesomeIcon icon={faHandPointRight} />}
                     size="small"
                   />
                   <ListItem
-                    label="Planning itineraries based on your preferences, nearby suggestions, local translations"
+                    label="Plan itineraries based on your likes."
                     icon={<FontAwesomeIcon icon={faHandPointRight} />}
                     size="small"
                   />
                   <ListItem
-                    label="Collaborative and offline functionalities for ease of use"
+                    label="Collaborate & share trips with friends."
+                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
+                    size="small"
+                  />
+                </span>
+                <span className="leading-6 items-start flex flex-col  hidden md:block">
+                  <ListItem
+                    label="Amigo is a one-stop travel companion app that takes care of your entire trip."
+                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
+                    size="small"
+                  />
+                  <ListItem
+                    label="Key Features - Planning itineraries based on your preferences, nearby suggestions, local translations."
+                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
+                    size="small"
+                  />
+                  <ListItem
+                    label="Includes collaborative and offline functionalities to improve networking and ease of use."
                     icon={<FontAwesomeIcon icon={faHandPointRight} />}
                     size="small"
                   />
@@ -81,7 +93,7 @@ export default function WorksPage() {
               </div>
             </div>
             <div className="flex flex-row-reverse bg-neutral-800 md:px-32">
-              <div className="flex flex-1 flex-col p-8 md:text-left text-center justify-evenly">
+              <div className="flex flex-1 flex-col p-8 text-left justify-evenly">
                 <span className="text-2xl md:text-4xl">NFT Marketplace</span>
                 <div className="flex flex-1 md:hidden my-8">
                   <img
@@ -89,19 +101,36 @@ export default function WorksPage() {
                     src={nft1}
                   />
                 </div>
-                <span className="leading-6 items-start flex flex-col">
+                <span className="leading-6 items-start flex flex-col md:hidden">
                   <ListItem
-                    label="A marketplace website for buying and selling NFTs"
+                    label="A marketplace website for NFTs."
                     icon={<FontAwesomeIcon icon={faHandPointRight} />}
                     size="small"
                   />
                   <ListItem
-                    label="Explore trending collections, place bids and own valuable NFTs"
+                    label="Explore collections, bid on sale items."
                     icon={<FontAwesomeIcon icon={faHandPointRight} />}
                     size="small"
                   />
                   <ListItem
-                    label="Chat with fellow shoppers, checkout their collection"
+                    label="Checkout creators, chat with buyers."
+                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
+                    size="small"
+                  />
+                </span>
+                <span className="leading-6 items-start flex flex-col hidden md:block">
+                  <ListItem
+                    label="It is a marketplace website for buying, selling, and collecting NFTs."
+                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
+                    size="small"
+                  />
+                  <ListItem
+                    label="Explore trending collections, place bids and own valuable NFTs."
+                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
+                    size="small"
+                  />
+                  <ListItem
+                    label="Chat with fellow shoppers and creators - checkout their collection."
                     icon={<FontAwesomeIcon icon={faHandPointRight} />}
                     size="small"
                   />

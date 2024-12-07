@@ -5,7 +5,7 @@ import Footer from "components/Footer";
 import Header from "components/Header";
 import ImageCarousel from "components/ImageCarousel";
 import ListItem from "components/ListItem";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import amigo1 from "../assets/images/amigo1.jpg";
 import amigo2 from "../assets/images/amigo2.jpg";
@@ -23,7 +23,19 @@ import tripadvisor from "../assets/images/tripadvisor.png";
 import xcode from "../assets/images/xcode.png";
 
 export default function Amigo() {
+  const [type, setType] = useState("translate-x-[-1600px] opacity-0");
+  const [date, setDate] = useState("translate-x-[1600px] opacity-0");
+  const [overview, setOverview] = useState("translate-y-[1600px] opacity-0");
+
   useEffect(() => {
+    setTimeout(() => {
+      setType("translate-x-0 opacity-1");
+      setDate("translate-x-0 opacity-1");
+    }, 500);
+
+    setTimeout(() => {
+      setOverview("translate-y-0 opacity-1");
+    }, 1000);
     window.scrollTo(0, 0);
   }, []);
 
@@ -44,17 +56,23 @@ export default function Amigo() {
                 />
               </div>
               <div className="flex flex-row md:px-8 justify-between items-center">
-                <span className="text-sm md:text-lg font-extrabold flex flex-1 bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
+                <span
+                  className={` ${type} transform transition duration-1000 text-sm md:text-lg font-extrabold flex flex-1 bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal`}
+                >
                   Mobile App Development
                 </span>
                 <span className="text-2xl md:text-4xl flex-1 md:flex-3 justify-center flex">
                   Amigo
                 </span>
-                <span className="text-sm md:text-lg flex flex-1 justify-end text-neutral-500">
+                <span
+                  className={` ${date} transform transition duration-1000 text-sm md:text-lg flex flex-1 justify-end text-neutral-500`}
+                >
                   Jun 2024 onwards
                 </span>
               </div>
-              <div className="leading-6 items-start flex flex-col my-8 px-4 text-left">
+              <div
+                className={` ${overview} transform transition duration-1000 leading-6 items-start flex flex-col my-8 px-4 text-left`}
+              >
                 <div className="flex flex-col md:flex-row">
                   <div className="flex flex-col md:w-[80%] md:pr-8">
                     <span className="text-lg md:text-2xl">Overview</span>

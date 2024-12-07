@@ -1,7 +1,7 @@
 import { Button } from "components/Button";
 import Footer from "components/Footer";
 import Header from "components/Header";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import ProfilePic_removebg from "../assets/images/ProfilePic-removebg.png";
@@ -28,6 +28,22 @@ export default function HomePage() {
     document.body.removeChild(link);
   };
 
+  const [footer, setFooter] = useState("translate-y-[90px]");
+  const [image, setImage] = useState("translate-y-[600px] opacity-0");
+  const [text, setText] = useState("translate-x-[-800px] opacity-0");
+
+  useEffect(() => {
+    setTimeout(() => {
+      setFooter("translate-y-0");
+    }, 100);
+
+    setTimeout(() => {
+      setImage("translate-y-0 opacity-1");
+      setText("translate-x-0 opacity-1");
+    }, 500);
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -36,9 +52,13 @@ export default function HomePage() {
       </Helmet>
       <div className="flex flex-col items-center md:h-screen justify-start w-full font-urbanistNormal gap-[70px] bg-neutral-900">
         <Header current="home" />
-        <div className="flex mt-24 flex-col text-white text-center pb-20 md:pb-0">
+        <div
+          className={`flex mt-24 flex-col text-white text-center pb-20 md:pb-0`}
+        >
           <div className="flex flex-row mx-4 md:mx-60 md:p-4">
-            <div className="flex flex-col items-start flex-2 md:pr-8">
+            <div
+              className={`flex flex-col ${text} transform transition duration-1000 items-start flex-2 md:pr-8`}
+            >
               <span className="text-white text-3xl md:text-6xl ">Hi 👋🏼</span>
               <div className="flex flex-row">
                 <span className="text-white text-3xl md:text-6xl ">I'm</span>
@@ -87,8 +107,10 @@ export default function HomePage() {
                   View Portfolio
                 </Button>
               </div>
-              <span className="text-left">{"Connect with me:"}</span>
-              <div className="items-center justify-center flex flex-row my-2 -ml-[10px]">
+              <span className="text-left hidden md:flex">
+                {"Connect with me:"}
+              </span>
+              <div className="items-center md:flex hidden justify-center flex flex-row my-2 -ml-[10px]">
                 <a href="https://www.linkedin.com/in/akshat-singh-1847461a0/">
                   <Button className="h-[48px] aspect-square">
                     <img src={linkedin} />
@@ -116,7 +138,9 @@ export default function HomePage() {
                 </a>
               </div>
             </div>
-            <div className="bg-pattern hidden md:block flex-1 rounded-3xl overflow-hidden m-2">
+            <div
+              className={`bg-pattern ${image} transform transition duration-1000  hidden md:block flex-1 rounded-3xl overflow-hidden m-2`}
+            >
               <div className="w-full h-full flex items-end z-20">
                 <img
                   src={ProfilePic_removebg}
@@ -127,7 +151,9 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        <div className="fixed bottom-0 w-full">
+        <div
+          className={`${footer} transform transition duration-1000 fixed bottom-0 w-full`}
+        >
           <Footer />
         </div>
       </div>

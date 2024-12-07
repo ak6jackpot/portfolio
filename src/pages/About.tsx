@@ -11,14 +11,35 @@ import bits_full from "../assets/images/bits_full.jpeg";
 import mobileDev from "../assets/images/mobileDev.jpg";
 import problemsolving from "../assets/images/problemsolving.jpg";
 import webDev from "../assets/images/webDev.jpg";
+import AnimatedNumber from "components/AnimatedNumber";
 
 export default function AboutPage() {
   const [aboutMe, setAboutMe] = useState("scale-0");
+  const [LI1, setLI1] = useState("translate-x-[1600px] opacity-0");
+  const [LI2, setLI2] = useState("translate-x-[1600px] opacity-0");
+  const [LI3, setLI3] = useState("translate-x-[1600px] opacity-0");
+  const [LI4, setLI4] = useState("translate-x-[1600px] opacity-0");
 
   useEffect(() => {
     setTimeout(() => {
       setAboutMe("scale-100");
-    }, 100);
+    }, 500);
+
+    setTimeout(() => {
+      setLI1("translate-x-0 opacity-1");
+    }, 1000);
+
+    setTimeout(() => {
+      setLI2("translate-x-0 opacity-1");
+    }, 1250);
+
+    setTimeout(() => {
+      setLI3("translate-x-0 opacity-1");
+    }, 1500);
+
+    setTimeout(() => {
+      setLI4("translate-x-0 opacity-1");
+    }, 1750);
     window.scrollTo(0, 0);
   }, []);
 
@@ -50,21 +71,45 @@ export default function AboutPage() {
               About Me
             </span>
             <div className="hidden md:block">
-              <ListItem label="Graduated in '23 with a degree in Computer Science from BITS Pilani, Pilani Campus." />
-              <ListItem label="Technical proficiency in Mobile and Web Development using React & TSX." />
-              <ListItem label="Natural aptitude for analysing and solving seemingly-tricky challenges." />
-              <ListItem label="Keen understanding of design systems, creating functional & intuitive user interfaces." />
+              <ListItem
+                className={`${LI1} transform transition duration-1000`}
+                label="Graduated in '23 with a degree in Computer Science from BITS Pilani, Pilani Campus."
+              />
+              <ListItem
+                className={`${LI2} transform transition duration-1000`}
+                label="Technical proficiency in Mobile and Web Development using React & TSX."
+              />
+              <ListItem
+                className={`${LI3} transform transition duration-1000`}
+                label="Natural aptitude for analysing and solving seemingly-tricky challenges."
+              />
+              <ListItem
+                className={`${LI4} transform transition duration-1000`}
+                label="Keen understanding of design systems, creating functional & intuitive user interfaces."
+              />
             </div>
             <div className="md:hidden">
-              <ListItem label="BITS Pilani CSE graduate" />
-              <ListItem label="Mobile and Web Developer" />
-              <ListItem label="Inherent problem solving skills" />
-              <ListItem label="Good sense of design systems" />
+              <ListItem
+                className={`${LI1} transform transition duration-1000`}
+                label="BITS Pilani CSE graduate"
+              />
+              <ListItem
+                className={`${LI2} transform transition duration-1000`}
+                label="Mobile and Web Developer"
+              />
+              <ListItem
+                className={`${LI3} transform transition duration-1000`}
+                label="Inherent problem solving skills"
+              />
+              <ListItem
+                className={`${LI4} transform transition duration-1000`}
+                label="Good sense of design systems"
+              />
             </div>
             <div className="flex flex-row py-4 md:py-12 justify-between md:space-x-20">
               <div className="flex flex-col items-start md:items-center">
                 <span className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
-                  9+
+                  <AnimatedNumber num={9} delay={3000} />+
                 </span>
                 <span className=" font-urbanistNormal my-2 text-sm pr-2 md:text-lg">
                   Apps & Websites Developed
@@ -72,7 +117,7 @@ export default function AboutPage() {
               </div>
               <div className="flex flex-col items-start md:items-center">
                 <span className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
-                  950+
+                  <AnimatedNumber num={950} delay={2000} />+
                 </span>
                 <span className=" font-urbanistNormal my-2 text-sm pr-2 md:text-lg">
                   Github Contributions
@@ -204,32 +249,6 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-        {/* <WavyBorder color={"#F59E0B"} />
-
-        <div className="flex flex-col bg-amber-500 w-full -mt-20 pl-16">
-          <span className="text-white text-lg">In my free time I enjoy,</span>
-          <span className="text-white text-2xl">Artworks →</span>
-          <div className="h-[370px] flex flex-row overflow-x-scroll overflow-y-hidden pr-8 my-4">
-            {artworks.map((item) => (
-              <div className="h-[300px] aspect-square pr-4">
-                <img
-                  className="border-4 border-black object-contain"
-                  src={item}
-                />
-              </div>
-            ))}
-          </div>
-          <span className="text-white text-2xl">
-            Playing and watching sports →
-          </span>
-          <div className="h-[250px] flex flex-row overflow-x-scroll overflow-y-hidden pr-8 my-4">
-            {sports.map((item) => (
-              <div className="w-[500px] aspect-video pr-4">
-                <img className="border-4 border-black" src={item} />
-              </div>
-            ))}
-          </div>
-        </div> */}
       </div>
       <Footer />
     </>

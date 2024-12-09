@@ -11,19 +11,7 @@ import { Button } from "components/Button";
 import ProfilePic from "../assets/images/ProfilePic.png";
 
 export default function ContactPage() {
-  const [footer, setFooter] = useState("translate-y-[90px]");
-  const [image, setImage] = useState("translate-x-[-600px] opacity-0");
-  const [text, setText] = useState("translate-x-[800px] opacity-0");
-
   useEffect(() => {
-    setTimeout(() => {
-      setFooter("translate-y-0");
-    }, 100);
-
-    setTimeout(() => {
-      setImage("translate-y-0 opacity-1");
-      setText("translate-x-0 opacity-1");
-    }, 500);
     window.scrollTo(0, 0);
   }, []);
 
@@ -37,7 +25,7 @@ export default function ContactPage() {
         <Header current="contact" />
         <div className="flex flex-col md:flex-row md:w-[60%] w-full mt-24 md:mt-48 items-center ">
           <div
-            className={`rounded-full w-[200px] md:w-[600px] ${image} transform transition duration-1000 p-0.5 aspect-square bg-gradient-to-r mx-16 from-violet-900 via-blue-600 to-amber-500`}
+            className={`rounded-full w-[200px] md:w-[600px]  transform transition duration-1000 p-0.5 aspect-square bg-gradient-to-r mx-16 from-violet-900 via-blue-600 to-amber-500`}
           >
             <div className="p-2 bg-neutral-900 rounded-full">
               <img
@@ -47,7 +35,7 @@ export default function ContactPage() {
             </div>
           </div>
           <div
-            className={`w-[90%] md:w-full aspect-video p-0.5 ${text} transform transition duration-1000 bg-gradient-to-r from-violet-900 via-blue-600 rounded-lg to-amber-500 mt-16 md:mt-4`}
+            className={`w-[90%] md:w-full aspect-video p-0.5  transform transition duration-1000 bg-gradient-to-r from-violet-900 via-blue-600 rounded-lg to-amber-500 mt-16 md:mt-4`}
           >
             <div className="bg-neutral-900 rounded-lg aspect-video p-2 items-center justify-between">
               <div className="flex flex-col  items-center justify-center py-4">
@@ -88,7 +76,7 @@ export default function ContactPage() {
         </div>
       </div>
       <div
-        className={`${footer} transform transition duration-1000 absolute bottom-0 w-full`}
+        className={` transform transition duration-1000 absolute bottom-0 w-full`}
       >
         <Footer />
       </div>

@@ -13,41 +13,7 @@ import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
 import ListItem from "components/ListItem";
 
 export default function ExperiencePage() {
-  const [title, setTitle] = useState("translate-y-[-800px] opacity-0");
-  const [imageMD, setImageMD] = useState("translate-x-[1600px] opacity-0");
-  const [imageSM, setImageSM] = useState("translate-x-[-1600px] opacity-0");
-  const [tech, setTech] = useState("translate-y-[800px]");
-  const [LI1, setLI1] = useState("translate-x-[1600px] opacity-0");
-  const [LI2, setLI2] = useState("translate-x-[1600px] opacity-0");
-  const [LI3, setLI3] = useState("translate-x-[1600px] opacity-0");
-  const [LI4, setLI4] = useState("translate-x-[1600px] opacity-0");
-
   useEffect(() => {
-    setTimeout(() => {
-      setTitle("translate-y-0 opacity-1");
-    }, 500);
-
-    setTimeout(() => {
-      setLI1("translate-x-0 opacity-1");
-    }, 1000);
-
-    setTimeout(() => {
-      setLI2("translate-x-0 opacity-1");
-    }, 1250);
-
-    setTimeout(() => {
-      setLI3("translate-x-0 opacity-1");
-    }, 1500);
-
-    setTimeout(() => {
-      setImageMD("translate-x-0 opacity-1");
-      setImageSM("translate-x-0 opacity-1");
-      setLI4("translate-x-0 opacity-1");
-    }, 1750);
-
-    setTimeout(() => {
-      setTech("translate-y-0");
-    }, 2000);
     window.scrollTo(0, 0);
   }, []);
 
@@ -69,7 +35,7 @@ export default function ExperiencePage() {
           <div className="flex flex-row bg-neutral-900 md:px-32">
             <div className="flex flex-1 flex-col p-8 justify-evenly text-left">
               <div
-                className={` ${title} transform transition duration-1000 flex flex-row justify-between items-end md:mb-4`}
+                className={`  transform transition duration-1000 flex flex-row justify-between items-end md:mb-4`}
               >
                 <div className="flex flex-col">
                   <span className="text-2xl md:text-4xl ">SuperPe</span>
@@ -87,7 +53,7 @@ export default function ExperiencePage() {
                 </div>
               </div>
               <div
-                className={` ${imageSM} transform transition duration-1000 flex flex-1 md:hidden my-8`}
+                className={`  transform transition duration-1000 flex flex-1 md:hidden my-8`}
               >
                 <img
                   className="h-full w-full object-cover rounded-lg"
@@ -95,32 +61,32 @@ export default function ExperiencePage() {
                 />
               </div>
               <ListItem
-                className={`${LI1} transform transition duration-1000`}
+                className={` transform transition duration-1000`}
                 label="Built the SuperPe application from scratch, which has currently 1M+ downloads on Google PlayStore."
                 icon={<FontAwesomeIcon icon={faHandPointRight} />}
                 size="small"
               />
               <ListItem
-                className={`${LI2} transform transition duration-1000`}
+                className={` transform transition duration-1000`}
                 label="Integrated multiple payment gateway SDKs like Juspay, Razorpay, Easebuzz etc. for a robust payment experience."
                 icon={<FontAwesomeIcon icon={faHandPointRight} />}
                 size="small"
               />
               <ListItem
-                className={`${LI3} transform transition duration-1000`}
+                className={` transform transition duration-1000`}
                 label="Integrated tools like Amplitude, Google Analytics, FbSDK, OneSignal and Sentry for effective monitoring, marketing, and error tracking."
                 icon={<FontAwesomeIcon icon={faHandPointRight} />}
                 size="small"
               />
               <ListItem
-                className={`${LI4} transform transition duration-1000`}
+                className={` transform transition duration-1000`}
                 label="Setup pipelines to deploy builds to both - Google PlayConsole and AppStore Connect."
                 icon={<FontAwesomeIcon icon={faHandPointRight} />}
                 size="small"
               />
             </div>
             <div
-              className={` ${imageMD} transform transition duration-1000 flex flex-1 p-8 hidden md:block`}
+              className={`  transform transition duration-1000 flex flex-1 p-8 hidden md:block`}
             >
               <img
                 className="h-full w-full object-contain rounded-lg"
@@ -130,7 +96,7 @@ export default function ExperiencePage() {
           </div>
 
           <div
-            className={` ${tech} transform transition duration-1000 flex flex-col bg-neutral-900 md:px-32`}
+            className={`  transform transition duration-1000 flex flex-col bg-neutral-900 md:px-32`}
           >
             <span className="text-xl px-8">Technologies I worked with:</span>
             <div className="grid grid-cols-2 gap-4 md:gap-6 md:grid-cols-3 p-6 md:px-32">

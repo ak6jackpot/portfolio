@@ -12,14 +12,8 @@ import nft1 from "../assets/images/nft1.png";
 
 export default function WorksPage() {
   const navigate = useNavigate();
-  const [amigo, setAmigo] = useState("translate-x-[1600px] opacity-0");
-  const [NFT, setNFT] = useState("translate-x-[-1600px] opacity-0");
 
   useEffect(() => {
-    setTimeout(() => {
-      setAmigo("translate-x-0 opacity-1");
-      setNFT("translate-x-0 opacity-1");
-    }, 500);
     window.scrollTo(0, 0);
   }, []);
 
@@ -40,7 +34,7 @@ export default function WorksPage() {
 
           <div className="flex flex-col justify-center md:mt-8">
             <div
-              className={` ${amigo} transform transition duration-1000 flex flex-row bg-neutral-900 md:px-32`}
+              className={`transform transition duration-1000 flex flex-row bg-neutral-900 md:px-32`}
             >
               <div className="flex flex-1 flex-col p-8 text-left justify-evenly">
                 <span className="text-2xl md:text-4xl">Amigo</span>
@@ -101,7 +95,7 @@ export default function WorksPage() {
               </div>
             </div>
             <div
-              className={` ${NFT} transform transition duration-1000 flex flex-row-reverse bg-neutral-800 md:px-32`}
+              className={`transform transition duration-1000 flex flex-row-reverse bg-neutral-800 md:px-32`}
             >
               <div className="flex flex-1 flex-col p-8 text-left justify-evenly">
                 <span className="text-2xl md:text-4xl">NFT Marketplace</span>

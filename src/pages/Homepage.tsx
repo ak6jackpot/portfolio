@@ -19,7 +19,7 @@ export default function HomePage() {
   }, []);
 
   const onButtonClick = () => {
-    const pdfUrl = "../../public/Akshat_Resume.pdf";
+    const pdfUrl = "Akshat_Resume.pdf";
     const link = document.createElement("a");
     link.href = pdfUrl;
     link.download = "Akshat_Resume.pdf";

@@ -16,8 +16,7 @@ export default function ContactPage() {
   const [contact, setContact] = useState("");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
-  const form = useRef();
-
+  const [loading, setLoading] = useState(false);
   const validContact =
     contact?.match(/^\S+@\S+\.\S+$/) ||
     contact?.match(/^(\+91[\-\s]?)?[0]?(91)?[6789]\d{9}$/);
@@ -27,29 +26,34 @@ export default function ContactPage() {
   }, []);
 
   const sendMail = () => {
-    // emailjs
-    //   .sendForm(
-    //     SERVICE_ID,
-    //     TEMPLATE_ID,
-    //     {
-    //       from_name: "John Doe",
-    //       to_name: "Akshat Singh",
-    //       message: "Hello! This is a test message.",
-    //     },
-    //     {
-    //       publicKey: PUBLIC_KEY,
-    //     }
-    //   )
-    //   .then(
-    //     (result) => {
-    //       console.log("Email successfully sent:", result.text);
-    //     },
-    //     (error) => {
-    //       console.error("Error sending email:", error.text);
-    //     }
-    //   );
-
-    console.log(form.current);
+    setLoading(true);
+    emailjs
+      .send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: name,
+          message: `${content}\n\n${name}\n${contact}`,
+        },
+        {
+          publicKey: PUBLIC_KEY,
+        }
+      )
+      .then(
+        (result) => {
+          console.log("Email successfully sent:", result.text);
+          setLoading(false);
+          alert("Message sent successfully!");
+          setName("");
+          setContact("");
+          setContent("");
+        },
+        (error) => {
+          console.error("Error sending email:", error);
+          setLoading(false);
+          alert("Failed to send the message. Please try again.");
+        }
+      );
   };
 
   return (
@@ -124,15 +128,15 @@ export default function ContactPage() {
               </div>
               <div className="flex flex-col items-center justify-center py-4 mx-4">
                 <span className="text-white py-1">Or drop me a mail</span>
-                <div className="flex flex-row my-4 w-full justify-between">
+                <div className="flex flex-col md:flex-row my-4 w-full justify-between">
                   <input
-                    className="bg-neutral-200 w-[48%] p-2 pl-4 rounded-xl"
+                    className="bg-neutral-200 w-full md:w-[48%] mb-2 md:mb-0 p-2 pl-4 rounded-md md:rounded-lg"
                     placeholder="Name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
                   <input
-                    className="bg-neutral-200 w-[48%] p-2 pl-4 rounded-xl"
+                    className="bg-neutral-200 w-full md:w-[48%] p-2 pl-4 rounded-md md:rounded-lg"
                     placeholder="Email / phone"
                     value={contact}
                     onChange={(e) => setContact(e.target.value)}
@@ -144,7 +148,7 @@ export default function ContactPage() {
                   )}
                 </div>
                 <textarea
-                  className="bg-neutral-200 w-full p-2 rounded-xl"
+                  className="bg-neutral-200 w-full p-2 rounded-md md:rounded-lg"
                   placeholder="Type your message here..."
                   rows={4}
                   maxLength={250}
@@ -153,6 +157,7 @@ export default function ContactPage() {
                 />
                 <Button
                   onClick={sendMail}
+                  loading={loading}
                   disabled={!buttonEnabled}
                   className={`bg-gradient-to-r text-white font-urbanistNormal ${
                     buttonEnabled

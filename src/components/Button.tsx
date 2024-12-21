@@ -1,4 +1,6 @@
 import React from "react";
+import { Sentry } from "react-activity";
+import "react-activity/dist/Sentry.css";
 
 const shapes = {
   circle: "rounded-[50%]",
@@ -25,7 +27,10 @@ const sizes = {
 } as const;
 
 type ButtonProps = Omit<
-  React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>,
+  React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  >,
   "onClick"
 > &
   Partial<{
@@ -37,6 +42,7 @@ type ButtonProps = Omit<
     variant: keyof typeof variants;
     size: keyof typeof sizes;
     color: string;
+    loading: boolean;
   }>;
 const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
   children,
@@ -47,15 +53,24 @@ const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
   variant = "fill",
   size = "xs",
   color = "black_900",
+  loading = false,
   ...restProps
 }) => {
   return (
     <button
-      className={`${className} flex items-center justify-center text-center cursor-pointer ${(shape && shapes[shape]) || ""} ${(size && sizes[size]) || ""} ${(variant && variants[variant]?.[color as keyof (typeof variants)[typeof variant]]) || ""}`}
+      className={`${className} flex items-center justify-center text-center cursor-pointer ${
+        (shape && shapes[shape]) || ""
+      } ${(size && sizes[size]) || ""} ${
+        (variant &&
+          variants[variant]?.[
+            color as keyof (typeof variants)[typeof variant]
+          ]) ||
+        ""
+      }`}
       {...restProps}
     >
       {!!leftIcon && leftIcon}
-      {children}
+      {loading ? <Sentry /> : children}
       {!!rightIcon && rightIcon}
     </button>
   );

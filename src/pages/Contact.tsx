@@ -1,19 +1,56 @@
 import Header from "components/Header";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import facebook from "../assets/images/Social/facebook.png";
 import github from "../assets/images/Social/github.png";
 import instagram from "../assets/images/Social/instagram.png";
 import linkedin from "../assets/images/Social/linkedin.png";
-import threads from "../assets/images/Social/threads.png";
+import x from "../assets/images/Social/x.png";
 import Footer from "components/Footer";
 import { Button } from "components/Button";
 import ProfilePic from "../assets/images/ProfilePic.png";
+import emailjs from "@emailjs/browser";
+import { SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY } from "../../secrets.json";
 
 export default function ContactPage() {
+  const [contact, setContact] = useState("");
+  const [name, setName] = useState("");
+  const [content, setContent] = useState("");
+  const form = useRef();
+
+  const validContact =
+    contact?.match(/^\S+@\S+\.\S+$/) ||
+    contact?.match(/^(\+91[\-\s]?)?[0]?(91)?[6789]\d{9}$/);
+  const buttonEnabled = name?.length > 0 && validContact && content?.length > 0;
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const sendMail = () => {
+    // emailjs
+    //   .sendForm(
+    //     SERVICE_ID,
+    //     TEMPLATE_ID,
+    //     {
+    //       from_name: "John Doe",
+    //       to_name: "Akshat Singh",
+    //       message: "Hello! This is a test message.",
+    //     },
+    //     {
+    //       publicKey: PUBLIC_KEY,
+    //     }
+    //   )
+    //   .then(
+    //     (result) => {
+    //       console.log("Email successfully sent:", result.text);
+    //     },
+    //     (error) => {
+    //       console.error("Error sending email:", error.text);
+    //     }
+    //   );
+
+    console.log(form.current);
+  };
 
   return (
     <>
@@ -21,9 +58,9 @@ export default function ContactPage() {
         <title>Contact</title>
         <meta name="Akshat Singh" />
       </Helmet>
-      <div className="flex flex-col items-center justify-start w-full h-screen font-urbanistNormal gap-[70px] bg-neutral-900">
+      <div className="flex flex-col items-center justify-start w-full md:h-screen font-urbanistNormal gap-[70px] pb-4 bg-neutral-900">
         <Header current="contact" />
-        <div className="flex flex-col md:flex-row md:w-[60%] w-full mt-24 md:mt-48 items-center ">
+        <div className="flex flex-col md:flex-row md:w-[60%] w-full mt-24 items-center ">
           <div
             className={`rounded-full w-[200px] md:w-[600px]  transform transition duration-1000 p-0.5 aspect-square bg-gradient-to-r mx-16 from-violet-900 via-blue-600 to-amber-500`}
           >
@@ -35,48 +72,103 @@ export default function ContactPage() {
             </div>
           </div>
           <div
-            className={`w-[90%] md:w-full aspect-video p-0.5  transform transition duration-1000 bg-gradient-to-r from-violet-900 via-blue-600 rounded-lg to-amber-500 mt-16 md:mt-4`}
+            className={`w-[90%] md:w-full aspect-video p-0.5 transform transition duration-1000 bg-gradient-to-r from-violet-900 via-blue-600 rounded-lg to-amber-500 mt-16 md:mt-4`}
           >
             <div className="bg-neutral-900 rounded-lg aspect-video p-2 items-center justify-between">
               <div className="flex flex-col  items-center justify-center py-4">
-                <span className="text-white py-1">Let's Connect!</span>
+                <span className="text-white py-1 text-lg font-urbanistBold">
+                  Let's Connect!
+                </span>
                 <span className="text-white py-1">
                   You can reach out to me on
                 </span>
               </div>
               <div className="items-center justify-center flex flex-row md:px-16 md:py-4">
-                <a href="https://www.linkedin.com/in/akshat-singh-1847461a0/">
+                <a
+                  target="none"
+                  href="https://www.linkedin.com/in/akshat-singh-1847461a0/"
+                >
                   <Button className="h-[50px] md:h-[60px] aspect-square">
                     <img src={linkedin} />
                   </Button>
                 </a>
-                <a href="https://www.facebook.com/akshat6jackpot?mibextid=LQQJ4d">
+                <a
+                  target="none"
+                  href="https://www.facebook.com/akshat6jackpot?mibextid=LQQJ4d"
+                >
                   <Button className="h-[50px] md:h-[60px] aspect-square">
                     <img src={facebook} />
                   </Button>
                 </a>
-                <a href="https://www.instagram.com/ak.jackpot?igsh=d3cza3owZnR6ZnVp&utm_source=qr">
+                <a
+                  target="none"
+                  href="https://www.instagram.com/ak.jackpot?igsh=d3cza3owZnR6ZnVp&utm_source=qr"
+                >
                   <Button className="h-[50px] md:h-[60px] aspect-square">
                     <img src={instagram} />
                   </Button>
                 </a>
-                <a href="https://github.com/ak6jackpot">
+                <a target="none" href="https://github.com/ak6jackpot">
                   <Button className="h-[50px] md:h-[60px] aspect-square">
                     <img src={github} />
                   </Button>
                 </a>
-                <a href="https://www.threads.net/@ak.jackpot">
+                <a
+                  target="none"
+                  href="https://x.com/akshats91819699?s=21&t=wJe_d0aRdoP17N-ziMxwoQ"
+                >
                   <Button className="h-[50px] md:h-[60px] aspect-square">
-                    <img src={threads} />
+                    <img src={x} />
                   </Button>
                 </a>
+              </div>
+              <div className="flex flex-col items-center justify-center py-4 mx-4">
+                <span className="text-white py-1">Or drop me a mail</span>
+                <div className="flex flex-row my-4 w-full justify-between">
+                  <input
+                    className="bg-neutral-200 w-[48%] p-2 pl-4 rounded-xl"
+                    placeholder="Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                  <input
+                    className="bg-neutral-200 w-[48%] p-2 pl-4 rounded-xl"
+                    placeholder="Email / phone"
+                    value={contact}
+                    onChange={(e) => setContact(e.target.value)}
+                  />
+                  {!validContact && contact?.length > 5 && (
+                    <span className="text-red-300 absolute right-2 text-xs top-2">
+                      {"* invalid e-mail or phone"}
+                    </span>
+                  )}
+                </div>
+                <textarea
+                  className="bg-neutral-200 w-full p-2 rounded-xl"
+                  placeholder="Type your message here..."
+                  rows={4}
+                  maxLength={250}
+                  value={content}
+                  onChange={(e) => setContent(e.target.value)}
+                />
+                <Button
+                  onClick={sendMail}
+                  disabled={!buttonEnabled}
+                  className={`bg-gradient-to-r text-white font-urbanistNormal ${
+                    buttonEnabled
+                      ? "from-violet-900 via-blue-600 to-amber-500"
+                      : "from-white to-white text-black"
+                  } mt-4 w-full`}
+                >
+                  Send
+                </Button>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div
-        className={` transform transition duration-1000 absolute bottom-0 w-full`}
+        className={`transform transition duration-1000 md:absolute bottom-0 w-full`}
       >
         <Footer />
       </div>

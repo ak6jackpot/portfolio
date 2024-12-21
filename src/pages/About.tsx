@@ -60,7 +60,7 @@ export default function AboutPage() {
               src={bits}
             />
           </div>
-          <div className="md:hidden flex-1 overflow-hidden items-center jusify-center flex">
+          <div className="md:hidden flex-1 overflow-hidden items-center w-full px-4 jusify-center flex">
             <img
               className="object-contain w-full h-full rounded-2xl"
               src={bits_full}

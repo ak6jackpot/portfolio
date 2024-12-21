@@ -9,7 +9,7 @@ import facebook from "../assets/images/Social/facebook.png";
 import github from "../assets/images/Social/github.png";
 import instagram from "../assets/images/Social/instagram.png";
 import linkedin from "../assets/images/Social/linkedin.png";
-import threads from "../assets/images/Social/threads.png";
+import x from "../assets/images/Social/x.png";
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -111,29 +111,41 @@ export default function HomePage() {
                 {"Connect with me:"}
               </span>
               <div className="items-center md:flex hidden justify-center flex flex-row my-2 -ml-[10px]">
-                <a href="https://www.linkedin.com/in/akshat-singh-1847461a0/">
+                <a
+                  target="none"
+                  href="https://www.linkedin.com/in/akshat-singh-1847461a0/"
+                >
                   <Button className="h-[48px] aspect-square">
                     <img src={linkedin} />
                   </Button>
                 </a>
-                <a href="https://www.facebook.com/akshat6jackpot?mibextid=LQQJ4d">
+                <a
+                  target="none"
+                  href="https://www.facebook.com/akshat6jackpot?mibextid=LQQJ4d"
+                >
                   <Button className="h-[48px] aspect-square">
                     <img src={facebook} />
                   </Button>
                 </a>
-                <a href="https://www.instagram.com/ak.jackpot?igsh=d3cza3owZnR6ZnVp&utm_source=qr">
+                <a
+                  target="none"
+                  href="https://www.instagram.com/ak.jackpot?igsh=d3cza3owZnR6ZnVp&utm_source=qr"
+                >
                   <Button className="h-[48px] aspect-square">
                     <img src={instagram} />
                   </Button>
                 </a>
-                <a href="https://github.com/ak6jackpot">
+                <a target="none" href="https://github.com/ak6jackpot">
                   <Button className="h-[48px] aspect-square">
                     <img src={github} />
                   </Button>
                 </a>
-                <a href="https://www.threads.net/@ak.jackpot">
+                <a
+                  target="none"
+                  href="https://x.com/akshats91819699?s=21&t=wJe_d0aRdoP17N-ziMxwoQ"
+                >
                   <Button className="h-[48px] aspect-square">
-                    <img src={threads} />
+                    <img src={x} />
                   </Button>
                 </a>
               </div>

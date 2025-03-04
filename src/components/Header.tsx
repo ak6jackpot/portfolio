@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button } from "./Button";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { useOutsideClick } from "utils";
 
 interface Props {
   className?: string;
@@ -13,7 +14,7 @@ export default function Header({ ...props }: Props) {
   const { current = "home" } = props;
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const hamRef = useRef<HTMLDivElement>(null);
   const [header, setHeader] = useState("translate-y-[-72px]");
 
   useEffect(() => {
@@ -26,6 +27,11 @@ export default function Header({ ...props }: Props) {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  useOutsideClick({
+    ref: hamRef,
+    handler: () => setIsMenuOpen(false),
+  });
 
   return (
     <div
@@ -104,6 +110,7 @@ export default function Header({ ...props }: Props) {
 
       {isMenuOpen && (
         <div
+          ref={hamRef}
           className={`absolute top-[72px] ${header} transform transition duration-1000 left-0 w-full border-b-4 border-neutral-600 rounded-md bg-neutral-900 text-white flex flex-col items-center space-y-4 pb-8 md:hidden z-10`}
         >
           <div

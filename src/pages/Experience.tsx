@@ -17,6 +17,21 @@ export default function ExperiencePage() {
     window.scrollTo(0, 0);
   }, []);
 
+  function monthDiff() {
+    const dateFrom = new Date("July 11, 22 00:20:18");
+    const dateTo = new Date(Date.now());
+    const total_months =
+      dateTo.getMonth() -
+      dateFrom.getMonth() +
+      12 * (dateTo.getFullYear() - dateFrom.getFullYear());
+    const years = Math.floor(total_months / 12);
+    const months = total_months % 12;
+
+    const yearString = years > 0 ? `${years} years ` : "";
+    const monthString = months > 0 ? `${months} months` : "";
+    return yearString + monthString;
+  }
+
   return (
     <>
       <Helmet>
@@ -48,7 +63,7 @@ export default function ExperiencePage() {
                     2022 onwards
                   </span>
                   <span className="text-xs md:text-sm text-neutral-400">
-                    2 yrs 3 months
+                    {monthDiff()}
                   </span>
                 </div>
               </div>

@@ -11,11 +11,26 @@ import sentry from "../assets/images/sentry.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
 import ListItem from "components/ListItem";
+import { isFrontend } from "utils";
 
 export default function ExperiencePage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const points = isFrontend()
+    ? [
+        "Built the SuperPe application from scratch, which has currently 1M+ downloads on Google PlayStore.",
+        "Integrated multiple payment gateway SDKs like Juspay, Razorpay, Easebuzz etc. for a robust payment experience.",
+        "Integrated tools like Amplitude, Google Analytics, FbSDK, OneSignal and Sentry for effective monitoring, marketing, and error tracking.",
+        "Setup pipelines to deploy builds to both - Google PlayConsole and AppStore Connect.",
+      ]
+    : [
+        "Created payment microservices from scratch, handling average transaction count of 12,000 per day.",
+        "Deveoped a credit-card risk engine for fraud prevention, which lowered chargeback cases to < 0.01%.",
+        "Improved API latency by 300ms by assigning asynchronous tasks to messaging queues using Pub/Sub.",
+        "Designed & developed a card management system with capabilities to tokenize, share, use credit cards.",
+      ];
 
   function monthDiff() {
     const dateFrom = new Date("July 11, 22 00:20:18");
@@ -68,40 +83,26 @@ export default function ExperiencePage() {
                 </div>
               </div>
               <div
-                className={`  transform transition duration-1000 flex flex-1 md:hidden my-8`}
+                className={`transform transition duration-1000 flex flex-1 md:hidden my-8`}
               >
                 <img
                   className="h-full w-full object-cover rounded-lg"
                   src={superpe}
                 />
               </div>
-              <ListItem
-                className={` transform transition duration-1000`}
-                label="Built the SuperPe application from scratch, which has currently 1M+ downloads on Google PlayStore."
-                icon={<FontAwesomeIcon icon={faHandPointRight} />}
-                size="small"
-              />
-              <ListItem
-                className={` transform transition duration-1000`}
-                label="Integrated multiple payment gateway SDKs like Juspay, Razorpay, Easebuzz etc. for a robust payment experience."
-                icon={<FontAwesomeIcon icon={faHandPointRight} />}
-                size="small"
-              />
-              <ListItem
-                className={` transform transition duration-1000`}
-                label="Integrated tools like Amplitude, Google Analytics, FbSDK, OneSignal and Sentry for effective monitoring, marketing, and error tracking."
-                icon={<FontAwesomeIcon icon={faHandPointRight} />}
-                size="small"
-              />
-              <ListItem
-                className={` transform transition duration-1000`}
-                label="Setup pipelines to deploy builds to both - Google PlayConsole and AppStore Connect."
-                icon={<FontAwesomeIcon icon={faHandPointRight} />}
-                size="small"
-              />
+              {points?.map((item) => {
+                return (
+                  <ListItem
+                    className={`transform transition duration-1000`}
+                    label={item}
+                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
+                    size="small"
+                  />
+                );
+              })}
             </div>
             <div
-              className={`  transform transition duration-1000 flex flex-1 p-8 hidden md:block`}
+              className={`transform transition duration-1000 flex flex-1 p-8 hidden md:block`}
             >
               <img
                 className="h-full w-full object-contain rounded-lg"
@@ -111,7 +112,7 @@ export default function ExperiencePage() {
           </div>
 
           <div
-            className={`  transform transition duration-1000 flex flex-col bg-neutral-900 md:px-32`}
+            className={`transform transition duration-1000 flex flex-col bg-neutral-900 md:px-32`}
           >
             <span className="text-xl px-8">Technologies I worked with:</span>
             <div className="grid grid-cols-2 gap-4 md:gap-6 md:grid-cols-3 p-6 md:px-32">

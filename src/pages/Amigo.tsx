@@ -110,7 +110,10 @@ export default function Amigo() {
                         className="bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 w-full font-urbanistNormal hover:from-white hover:to-white hover:text-black"
                       >
                         Github
-                        <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                        <FontAwesomeIcon
+                          icon={faArrowUpRightFromSquare}
+                          style={{ marginLeft: 8 }}
+                        />
                       </Button>
                     </a>
                   </div>

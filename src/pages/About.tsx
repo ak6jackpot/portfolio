@@ -4,14 +4,11 @@ import { Helmet } from "react-helmet";
 
 import Footer from "components/Footer";
 
+import AnimatedNumber from "components/AnimatedNumber";
 import ListItem from "components/ListItem";
-import UI from "../assets/images/UI.jpg";
+import { getImageURL, isFrontend } from "utils";
 import bits from "../assets/images/bits.png";
 import bits_full from "../assets/images/bits_full.jpeg";
-import mobileDev from "../assets/images/mobileDev.jpg";
-import problemsolving from "../assets/images/problemsolving.jpg";
-import webDev from "../assets/images/webDev.jpg";
-import AnimatedNumber from "components/AnimatedNumber";
 
 export default function AboutPage() {
   const [aboutMe, setAboutMe] = useState("scale-0");
@@ -19,6 +16,127 @@ export default function AboutPage() {
   const [LI2, setLI2] = useState("translate-x-[1600px] opacity-0");
   const [LI3, setLI3] = useState("translate-x-[1600px] opacity-0");
   const [LI4, setLI4] = useState("translate-x-[1600px] opacity-0");
+
+  const textData = isFrontend()
+    ? {
+        sm: [
+          "BITS Pilani CSE graduate",
+          "Mobile and Web Developer",
+          "Inherent problem solving skills",
+          "Good sense of design systems",
+        ],
+        md: [
+          "Graduated in '23 with a degree in Computer Science from BITS Pilani, Pilani Campus.",
+          "Technical proficiency in Mobile and Web Development using React & TSX.",
+          "Natural aptitude for solving and analysing case-studies & challenging problems.",
+          "Keen understanding of design systems, creating functional & intuitive user interfaces.",
+        ],
+      }
+    : {
+        sm: [
+          "BITS Pilani CSE graduate",
+          "Backend Developer",
+          "Inherent problem solving skills",
+          "Good sense of system design",
+        ],
+        md: [
+          "Graduated in '23 with a degree in Computer Science from BITS Pilani, Pilani Campus.",
+          "Technical proficiency in server-side Development using Python and JS/TSX.",
+          "Natural aptitude for solving and analysing case-studies & challenging problems.",
+          "Keen understanding of designing systems, creating functional & efficient services.",
+        ],
+      };
+
+  const counterData = isFrontend()
+    ? [
+        { num: 9, text: "Apps & Websites Developed", delay: 3000 },
+        { num: 950, text: "Github Contributions", delay: 2000 },
+      ]
+    : [
+        { num: 8, text: "Microservices managed", delay: 3000 },
+        { num: 950, text: "Github Contributions", delay: 2000 },
+      ];
+
+  const stickyData = isFrontend()
+    ? [
+        {
+          title: "Mobile Development",
+          text: ` I specialize in creating intuitive, responsive mobile
+                  applications that provide a seamless user experience across
+                  iOS and Android platforms. From concept to deployment, I
+                  handle the entire development process with a focus on
+                  performance, security, and scalability, ensuring apps that are
+                  both robust and user-friendly.`,
+          image: getImageURL("mobileDev", "jpg"),
+        },
+        {
+          title: "Web Development",
+          text: `I specialize in developing dynamic, high-performance websites
+                  using latest technologies to deliver a seamless user
+                  experience across all devices. My approach emphasizes writing
+                  clean, maintainable code and best practices, whether crafting
+                  responsive landing pages, complex web applications, or robust
+                  services.`,
+          image: getImageURL("webDev", "jpg"),
+        },
+        {
+          title: "UI Design",
+          text: `I design user interfaces that are not only aesthetically
+                  pleasing, but also highly functional and intuitive. By
+                  combining creativity with user-centered design principles, I
+                  create interfaces that enhance usability, accessibility, and
+                  overall user satisfaction, ensuring every interaction feels
+                  intuitive and efficient.`,
+          image: getImageURL("UI", "jpg"),
+        },
+        {
+          title: "Problem Solving",
+          text: `I thrive on tackling complex challenges, using both logical
+                  and creative approaches to develop innovative and effective
+                  solutions. My problem-solving skills are backed by strong
+                  technical expertise, enabling me to address complex issues
+                  while aligning solutions with user needs, business goals, and
+                  long-term scalability.`,
+          image: getImageURL("problemsolving", "jpg"),
+        },
+      ]
+    : [
+        {
+          title: "Backend Development",
+          text: `I develop scalable, secure backend systems that power seamless experiences for mobile applications. From database architecture to API development, I ensure efficient data flow and server performance. My expertise lies in building robust systems that handle high traffic, maintain security, and integrate smoothly with frontend applications.`,
+          image: getImageURL("backend"),
+        },
+        {
+          title: "System Design",
+          text: `I design user interfaces that are not only aesthetically
+                  pleasing, but also highly functional and intuitive. By
+                  combining creativity with user-centered design principles, I
+                  create interfaces that enhance usability, accessibility, and
+                  overall user satisfaction, ensuring every interaction feels
+                  intuitive and efficient.`,
+          image: getImageURL("system"),
+        },
+        {
+          title: "App & Web Development",
+          text: `I specialize in developing dynamic, high-performance websites and mobile apps
+                  using latest technologies to deliver a seamless user
+                  experience across all devices. My approach emphasizes writing
+                  clean, maintainable code and best practices, whether crafting
+                  responsive landing pages, complex web applications, or robust
+                  services.`,
+          image: getImageURL("webDev", "jpg"),
+        },
+        {
+          title: "Problem Solving",
+          text: `I thrive on tackling complex challenges, using both logical
+                  and creative approaches to develop innovative and effective
+                  solutions. My problem-solving skills are backed by strong
+                  technical expertise, enabling me to address complex issues
+                  while aligning solutions with user needs, business goals, and
+                  long-term scalability.`,
+          image: getImageURL("problemsolving", "jpg"),
+        },
+      ];
 
   useEffect(() => {
     setTimeout(() => {
@@ -71,58 +189,54 @@ export default function AboutPage() {
               About Me
             </span>
             <div className="hidden md:block">
-              <ListItem
-                className={`${LI1} transform transition duration-1000`}
-                label="Graduated in '23 with a degree in Computer Science from BITS Pilani, Pilani Campus."
-              />
-              <ListItem
-                className={`${LI2} transform transition duration-1000`}
-                label="Technical proficiency in Mobile and Web Development using React & TSX."
-              />
-              <ListItem
-                className={`${LI3} transform transition duration-1000`}
-                label="Natural aptitude for analysing and solving seemingly-tricky challenges."
-              />
-              <ListItem
-                className={`${LI4} transform transition duration-1000`}
-                label="Keen understanding of design systems, creating functional & intuitive user interfaces."
-              />
+              {textData?.md?.map((item, index) => {
+                return (
+                  <ListItem
+                    className={`${
+                      index == 0
+                        ? LI1
+                        : index == 1
+                        ? LI2
+                        : index == 2
+                        ? LI3
+                        : LI4
+                    } transform transition duration-1000`}
+                    label={item}
+                  />
+                );
+              })}
             </div>
             <div className="md:hidden">
-              <ListItem
-                className={`${LI1} transform transition duration-1000`}
-                label="BITS Pilani CSE graduate"
-              />
-              <ListItem
-                className={`${LI2} transform transition duration-1000`}
-                label="Mobile and Web Developer"
-              />
-              <ListItem
-                className={`${LI3} transform transition duration-1000`}
-                label="Inherent problem solving skills"
-              />
-              <ListItem
-                className={`${LI4} transform transition duration-1000`}
-                label="Good sense of design systems"
-              />
+              {textData?.sm?.map((item, index) => {
+                return (
+                  <ListItem
+                    className={`${
+                      index == 0
+                        ? LI1
+                        : index == 1
+                        ? LI2
+                        : index == 2
+                        ? LI3
+                        : LI4
+                    } transform transition duration-1000`}
+                    label={item}
+                  />
+                );
+              })}
             </div>
             <div className="flex flex-row py-4 md:py-12 justify-between md:space-x-20">
-              <div className="flex flex-col items-start md:items-center">
-                <span className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
-                  <AnimatedNumber num={9} delay={3000} />+
-                </span>
-                <span className=" font-urbanistNormal my-2 text-sm pr-2 md:text-lg">
-                  Apps & Websites Developed
-                </span>
-              </div>
-              <div className="flex flex-col items-start md:items-center">
-                <span className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
-                  <AnimatedNumber num={950} delay={2000} />+
-                </span>
-                <span className=" font-urbanistNormal my-2 text-sm pr-2 md:text-lg">
-                  Github Contributions
-                </span>
-              </div>
+              {counterData?.map((item) => {
+                return (
+                  <div className="flex flex-col items-start md:items-center">
+                    <span className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent leading-normal">
+                      <AnimatedNumber num={item?.num} delay={item?.delay} />+
+                    </span>
+                    <span className=" font-urbanistNormal my-2 text-sm pr-2 md:text-lg">
+                      {item?.text}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -138,7 +252,37 @@ export default function AboutPage() {
             What I bring to the table
           </span>
 
-          <div className="h-screen flex flex-col justify-center sticky top-8 md:top-0">
+          {stickyData?.map((item, index) => {
+            return (
+              <div className="h-screen flex flex-col justify-center sticky top-8 md:top-0">
+                <div
+                  className={`flex ${
+                    index % 2 == 0
+                      ? "flex-row bg-neutral-900"
+                      : "flex-row-reverse bg-neutral-800"
+                  } md:px-32`}
+                >
+                  <div className="flex flex-1 flex-col p-8 md:text-left text-center justify-evenly">
+                    <span className="text-2xl md:text-4xl ">{item?.title}</span>
+                    <div className="flex flex-1 md:hidden my-8">
+                      <img
+                        className="h-full w-full object-cover rounded-2xl"
+                        src={item?.image}
+                      />
+                    </div>
+                    <span className=" leading-6">{item?.text}</span>
+                  </div>
+                  <div className="flex flex-1 p-8 hidden md:block">
+                    <img
+                      className="h-full w-full object-cover rounded-2xl"
+                      src={item?.image}
+                    />
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+          {/* <div className="h-screen flex flex-col justify-center sticky top-8 md:top-0">
             <div className="flex flex-row bg-neutral-900 md:px-32">
               <div className="flex flex-1 flex-col p-8 md:text-left text-center justify-evenly">
                 <span className="text-2xl md:text-4xl ">
@@ -247,7 +391,7 @@ export default function AboutPage() {
                 />
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <Footer />

@@ -40,6 +40,16 @@ export const useOutsideClick = ({ ref, handler }: OutsideClickHandlerProps) => {
   }, [ref, handler]);
 };
 
-export const getImageURL = (name: string) => {
-  return `https://fe-assets-all.s3.ap-south-1.amazonaws.com/portfolio/${name}.png`;
+export const getImageURL = (name: string, format: string = "png") => {
+  return `https://fe-assets-all.s3.ap-south-1.amazonaws.com/portfolio/${name}.${format}`;
+};
+
+export const isFrontend = () => {
+  const type = localStorage?.getItem("type");
+
+  if (type == "fe") {
+    return true;
+  } else {
+    return false;
+  }
 };

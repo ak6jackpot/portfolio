@@ -7,20 +7,7 @@ import ImageCarousel from "components/ImageCarousel";
 import ListItem from "components/ListItem";
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import amigo1 from "../assets/images/amigo1.jpg";
-import amigo2 from "../assets/images/amigo2.jpg";
-import amigo3 from "../assets/images/amigo3.jpg";
-import amigo4 from "../assets/images/amigo4.jpg";
-import amigo5 from "../assets/images/amigo5.jpg";
-import amigo6 from "../assets/images/amigo6.jpg";
-import aws from "../assets/images/aws.png";
-import cloud from "../assets/images/cloud.png";
-import node from "../assets/images/node.png";
-import openai from "../assets/images/openai.png";
-import play from "../assets/images/play.png";
-import react from "../assets/images/react.png";
-import tripadvisor from "../assets/images/tripadvisor.png";
-import xcode from "../assets/images/xcode.png";
+import { getImageURL, isFrontend } from "utils";
 
 export default function Amigo() {
   const [type, setType] = useState("translate-x-[-1600px] opacity-0");
@@ -39,6 +26,28 @@ export default function Amigo() {
     window.scrollTo(0, 0);
   }, []);
 
+  const skills = isFrontend()
+    ? [
+        { text: "React Native", image: getImageURL("react") },
+        { text: "xCode", image: getImageURL("xcode") },
+        { text: "OpenAI", image: getImageURL("openai") },
+        { text: "TripAdvisor", image: getImageURL("tripadvisor") },
+        { text: "Google Cloud", image: getImageURL("cloud") },
+        { text: "AWS", image: getImageURL("aws") },
+        { text: "Node JS", image: getImageURL("node") },
+        { text: "Google Play", image: getImageURL("play") },
+      ]
+    : [
+        { text: "Node JS", image: getImageURL("node") },
+        { text: "AWS", image: getImageURL("aws") },
+        { text: "React Native", image: getImageURL("react") },
+        { text: "xCode", image: getImageURL("xcode") },
+        { text: "Google Cloud", image: getImageURL("cloud") },
+        { text: "OpenAI", image: getImageURL("openai") },
+        { text: "TripAdvisor", image: getImageURL("tripadvisor") },
+        { text: "Google Play", image: getImageURL("play") },
+      ];
+
   return (
     <>
       <Helmet>
@@ -52,7 +61,14 @@ export default function Amigo() {
             <div className="flex flex-1 flex-col pt-8 md:text-left text-center justify-evenly">
               <div className="flex items-center justify-center h-[250px] md:h-[450px]">
                 <ImageCarousel
-                  images={[amigo1, amigo2, amigo3, amigo4, amigo5, amigo6]}
+                  images={[
+                    getImageURL("amigo1", "jpg"),
+                    getImageURL("amigo2", "jpg"),
+                    getImageURL("amigo3", "jpg"),
+                    getImageURL("amigo4", "jpg"),
+                    getImageURL("amigo5", "jpg"),
+                    getImageURL("amigo6", "jpg"),
+                  ]}
                 />
               </div>
               <div className="flex flex-row md:px-8 justify-between items-center">
@@ -170,74 +186,19 @@ export default function Amigo() {
           <div className="flex flex-col bg-neutral-900 md:px-32">
             <span className="text-xl px-4">Technologies I worked with:</span>
             <div className="grid grid-cols-2 gap-4 md:gap-6 md:grid-cols-4 p-6 md:px-12">
-              <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
-                <img
-                  className="h-full object-contain flex-2 flex rounded-2xl"
-                  src={react}
-                />
-                <span className="text-black md:text-lg flex-3 flex">
-                  React Native
-                </span>
-              </div>
-              <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
-                <img
-                  className="h-full object-contain flex flex-2 rounded-2xl"
-                  src={xcode}
-                />
-                <span className="text-black md:text-lg flex flex-3">xCode</span>
-              </div>
-              <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
-                <img
-                  className="h-full object-contain flex flex-2 rounded-2xl"
-                  src={openai}
-                />
-                <span className="text-black md:text-lg flex flex-3">
-                  OpenAI
-                </span>
-              </div>
-              <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
-                <img
-                  className="h-full object-contain flex flex-2 rounded-2xl"
-                  src={tripadvisor}
-                />
-                <span className="text-black md:text-lg flex flex-3">
-                  TripAdvisor
-                </span>
-              </div>
-              <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
-                <img
-                  className="h-full object-contain flex flex-2 rounded-2xl"
-                  src={cloud}
-                />
-                <span className="text-black md:text-lg flex flex-3">
-                  Google Cloud
-                </span>
-              </div>
-              <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
-                <img
-                  className="h-full object-contain flex flex-2 rounded-2xl"
-                  src={aws}
-                />
-                <span className="text-black md:text-lg flex flex-3">AWS</span>
-              </div>
-              <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
-                <img
-                  className="h-full object-contain flex flex-2 rounded-2xl"
-                  src={node}
-                />
-                <span className="text-black md:text-lg flex flex-3">
-                  Node JS
-                </span>
-              </div>
-              <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
-                <img
-                  className="h-full object-contain flex flex-2 rounded-2xl"
-                  src={play}
-                />
-                <span className="text-black md:text-lg flex flex-3">
-                  Google Play
-                </span>
-              </div>
+              {skills.map((item) => {
+                return (
+                  <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
+                    <img
+                      className="h-full object-contain flex-2 flex rounded-2xl"
+                      src={item.image}
+                    />
+                    <span className="text-black md:text-lg flex-3 flex">
+                      {item.text}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

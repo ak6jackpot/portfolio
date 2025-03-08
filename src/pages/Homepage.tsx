@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { getImageURL, isFrontend } from "utils";
-import ProfilePic_removebg from "../assets/images/ProfilePic-removebg.png";
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -66,7 +65,7 @@ export default function HomePage() {
     }, 100);
 
     setTimeout(() => {
-      setImage("translate-y-0 opacity-1");
+      setImage("translate-y-0 opacity-70");
       setText("translate-x-0 opacity-1");
     }, 500);
     window.scrollTo(0, 0);
@@ -109,7 +108,7 @@ export default function HomePage() {
                 <div className="bg-pattern md:hidden flex-1 flex rounded-3xl overflow-hidden m-2">
                   <div className="w-full h-[full] flex items-end z-20">
                     <img
-                      src={ProfilePic_removebg}
+                      src={getImageURL("ProfilePic-removebg")}
                       alt="image_one"
                       className="w-full"
                     />
@@ -149,11 +148,11 @@ export default function HomePage() {
               </div>
             </div>
             <div
-              className={`bg-pattern ${image} transform transition duration-1000  hidden md:block flex-1 rounded-3xl overflow-hidden m-2`}
+              className={`bg-pattern ${image} transform transition duration-1000 hidden md:block flex-1 rounded-3xl overflow-hidden m-2`}
             >
               <div className="w-full h-full flex items-end z-20">
                 <img
-                  src={ProfilePic_removebg}
+                  src={getImageURL("ProfilePic-removebg")}
                   alt="image_one"
                   className="w-full"
                 />

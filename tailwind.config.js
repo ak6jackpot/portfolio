@@ -38,7 +38,8 @@ module.exports = {
       },
       backgroundImage: {
         gradient: "linear-gradient(90deg, #ffb039,#ffb03900)",
-        pattern: "url('./src/assets/images/abstract.jpg')",
+        pattern:
+          "url('https://fe-assets-all.s3.ap-south-1.amazonaws.com/portfolio/abstract.jpg')",
       },
     },
   },

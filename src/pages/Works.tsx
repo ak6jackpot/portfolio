@@ -4,11 +4,10 @@ import { Button } from "components/Button";
 import Footer from "components/Footer";
 import Header from "components/Header";
 import ListItem from "components/ListItem";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
-import amigo2 from "../assets/images/amigo2.jpg";
-import nft1 from "../assets/images/nft1.png";
+import { getImageURL } from "utils";
 
 export default function WorksPage() {
   const navigate = useNavigate();
@@ -17,6 +16,32 @@ export default function WorksPage() {
     window.scrollTo(0, 0);
   }, []);
 
+  const textData = {
+    amigo: {
+      sm: [
+        "An AI-based travel app for your trips",
+        "Plan itineraries based on your likes",
+        "Collaborate & share trips with friends",
+      ],
+      md: [
+        "Amigo is an AI-based travel planning application that provides you with your dream vacation",
+        "Planning itineraries based on your preferences, nearby suggestions, reviews & local translations",
+        "Includes collaborative and offline functionalities to improve networking and ease of use",
+      ],
+    },
+    nft: {
+      sm: [
+        "A marketplace website for NFTs",
+        "Explore collections, bid on sale items",
+        "Checkout creators, chat with buyers",
+      ],
+      md: [
+        "It is a marketplace website for buying, selling, and collecting NFTs",
+        "Explore trending collections, place bids and own valuable NFTs",
+        "Chat with fellow shoppers and creators - checkout their collection",
+      ],
+    },
+  };
   return (
     <>
       <Helmet>
@@ -41,42 +66,30 @@ export default function WorksPage() {
                 <div className="flex flex-1 md:hidden my-8">
                   <img
                     className="w-full object-contain rounded-2xl"
-                    src={amigo2}
+                    src={getImageURL("amigo2", "jpg")}
                   />
                 </div>
                 <span className="leading-6 items-start flex flex-col md:hidden">
-                  <ListItem
-                    label="A one-stop travel app for your trips."
-                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
-                    size="small"
-                  />
-                  <ListItem
-                    label="Plan itineraries based on your likes."
-                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
-                    size="small"
-                  />
-                  <ListItem
-                    label="Collaborate & share trips with friends."
-                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
-                    size="small"
-                  />
+                  {textData.amigo.sm.map((item) => {
+                    return (
+                      <ListItem
+                        label={item}
+                        icon={<FontAwesomeIcon icon={faHandPointRight} />}
+                        size="small"
+                      />
+                    );
+                  })}
                 </span>
                 <span className="leading-6 items-start flex flex-col  hidden md:block">
-                  <ListItem
-                    label="Amigo is a one-stop travel companion app that takes care of your entire trip."
-                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
-                    size="small"
-                  />
-                  <ListItem
-                    label="Key Features - Planning itineraries based on your preferences, nearby suggestions, local translations."
-                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
-                    size="small"
-                  />
-                  <ListItem
-                    label="Includes collaborative and offline functionalities to improve networking and ease of use."
-                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
-                    size="small"
-                  />
+                  {textData.amigo.md.map((item) => {
+                    return (
+                      <ListItem
+                        label={item}
+                        icon={<FontAwesomeIcon icon={faHandPointRight} />}
+                        size="small"
+                      />
+                    );
+                  })}
                 </span>
                 <Button
                   onClick={() => {
@@ -90,7 +103,7 @@ export default function WorksPage() {
               <div className="flex p-8 gap-4 flex-row hidden md:flex">
                 <img
                   className="object-contain rounded-2xl w-[200px]"
-                  src={amigo2}
+                  src={getImageURL("amigo2", "jpg")}
                 />
               </div>
             </div>
@@ -102,42 +115,30 @@ export default function WorksPage() {
                 <div className="flex flex-1 md:hidden my-8">
                   <img
                     className="w-full object-contain rounded-2xl"
-                    src={nft1}
+                    src={getImageURL("nft1")}
                   />
                 </div>
                 <span className="leading-6 items-start flex flex-col md:hidden">
-                  <ListItem
-                    label="A marketplace website for NFTs."
-                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
-                    size="small"
-                  />
-                  <ListItem
-                    label="Explore collections, bid on sale items."
-                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
-                    size="small"
-                  />
-                  <ListItem
-                    label="Checkout creators, chat with buyers."
-                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
-                    size="small"
-                  />
+                  {textData.nft.sm.map((item) => {
+                    return (
+                      <ListItem
+                        label={item}
+                        icon={<FontAwesomeIcon icon={faHandPointRight} />}
+                        size="small"
+                      />
+                    );
+                  })}
                 </span>
                 <span className="leading-6 items-start flex flex-col hidden md:block">
-                  <ListItem
-                    label="It is a marketplace website for buying, selling, and collecting NFTs."
-                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
-                    size="small"
-                  />
-                  <ListItem
-                    label="Explore trending collections, place bids and own valuable NFTs."
-                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
-                    size="small"
-                  />
-                  <ListItem
-                    label="Chat with fellow shoppers and creators - checkout their collection."
-                    icon={<FontAwesomeIcon icon={faHandPointRight} />}
-                    size="small"
-                  />
+                  {textData.nft.md.map((item) => {
+                    return (
+                      <ListItem
+                        label={item}
+                        icon={<FontAwesomeIcon icon={faHandPointRight} />}
+                        size="small"
+                      />
+                    );
+                  })}
                 </span>
                 <Button
                   onClick={() => {
@@ -151,7 +152,7 @@ export default function WorksPage() {
               <div className="flex p-8 gap-4 flex-row hidden md:flex">
                 <img
                   className="object-cover rounded-2xl w-[500px]"
-                  src={nft1}
+                  src={getImageURL("nft1")}
                 />
               </div>
             </div>

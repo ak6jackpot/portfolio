@@ -7,18 +7,7 @@ import ImageCarousel from "components/ImageCarousel";
 import ListItem from "components/ListItem";
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import aws from "../assets/images/aws.png";
-import css from "../assets/images/css.png";
-import fuse from "../assets/images/fuse.png";
-import html from "../assets/images/html.png";
-import nft1 from "../assets/images/nft1.png";
-import nft2 from "../assets/images/nft2.png";
-import nft3 from "../assets/images/nft3.png";
-import nft4 from "../assets/images/nft4.png";
-import nft5 from "../assets/images/nft5.png";
-import nft6 from "../assets/images/nft6.png";
-import react from "../assets/images/react.png";
-import tailwind from "../assets/images/tailwind.png";
+import { getImageURL, isFrontend } from "utils";
 
 export default function NFT() {
   const [type, setType] = useState("translate-x-[-1600px] opacity-0");
@@ -37,6 +26,24 @@ export default function NFT() {
     window.scrollTo(0, 0);
   }, []);
 
+  const skills = isFrontend()
+    ? [
+        { text: "React JS", image: getImageURL("react") },
+        { text: "CSS", image: getImageURL("css") },
+        { text: "AWS", image: getImageURL("aws") },
+        { text: "Tailwind", image: getImageURL("tailwind") },
+        { text: "Fuse JS", image: getImageURL("fuse") },
+        { text: "HTML", image: getImageURL("html") },
+      ]
+    : [
+        { text: "AWS", image: getImageURL("aws") },
+        { text: "React JS", image: getImageURL("react") },
+        { text: "CSS", image: getImageURL("css") },
+        { text: "Tailwind", image: getImageURL("tailwind") },
+        { text: "Fuse JS", image: getImageURL("fuse") },
+        { text: "HTML", image: getImageURL("html") },
+      ];
+
   return (
     <>
       <Helmet>
@@ -50,7 +57,14 @@ export default function NFT() {
             <div className="flex flex-1 flex-col pt-8 md:text-left text-center justify-evenly">
               <div className="flex items-center justify-center h-[150px] md:h-[300px]">
                 <ImageCarousel
-                  images={[nft1, nft2, nft3, nft4, nft5, nft6]}
+                  images={[
+                    getImageURL("nft1"),
+                    getImageURL("nft2"),
+                    getImageURL("nft3"),
+                    getImageURL("nft4"),
+                    getImageURL("nft5"),
+                    getImageURL("nft6"),
+                  ]}
                   orientaion="landscape"
                 />
               </div>
@@ -163,54 +177,19 @@ export default function NFT() {
           <div className="flex flex-col bg-neutral-900 md:px-32">
             <span className="text-xl px-4">Technologies I worked with:</span>
             <div className="grid grid-cols-2 gap-4 md:gap-6 md:grid-cols-3 p-6 md:px-32">
-              <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
-                <img
-                  className="h-full object-contain flex-2 flex rounded-2xl"
-                  src={react}
-                />
-                <span className="text-black md:text-lg flex-3 flex">
-                  React JS
-                </span>
-              </div>
-              <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
-                <img
-                  className="h-full object-contain flex flex-2 rounded-2xl"
-                  src={css}
-                />
-                <span className="text-black md:text-lg flex flex-3">CSS</span>
-              </div>
-              <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
-                <img
-                  className="h-full object-contain flex flex-2 rounded-2xl"
-                  src={aws}
-                />
-                <span className="text-black md:text-lg flex flex-3">AWS</span>
-              </div>
-              <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
-                <img
-                  className="h-full object-contain flex flex-2 rounded-2xl"
-                  src={tailwind}
-                />
-                <span className="text-black md:text-lg flex flex-3">
-                  Tailwind
-                </span>
-              </div>
-              <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
-                <img
-                  className="h-full object-contain flex flex-2 rounded-2xl"
-                  src={fuse}
-                />
-                <span className="text-black md:text-lg flex flex-3">
-                  Fuse JS
-                </span>
-              </div>
-              <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
-                <img
-                  className="h-full object-contain flex flex-2 rounded-2xl"
-                  src={html}
-                />
-                <span className="text-black md:text-lg flex flex-3">HTML</span>
-              </div>
+              {skills.map((item) => {
+                return (
+                  <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
+                    <img
+                      className="h-full object-contain flex-2 flex rounded-2xl"
+                      src={item.image}
+                    />
+                    <span className="text-black md:text-lg flex-3 flex">
+                      {item.text}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

@@ -1,17 +1,11 @@
+import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Footer from "components/Footer";
 import Header from "components/Header";
-import React, { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
-import superpe from "../assets/images/superpe.jpg";
-import react from "../assets/images/react.png";
-import xcode from "../assets/images/xcode.png";
-import aws from "../assets/images/aws.png";
-import amplitude from "../assets/images/amplitude.png";
-import sentry from "../assets/images/sentry.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
 import ListItem from "components/ListItem";
-import { isFrontend } from "utils";
+import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
+import { getImageURL, isFrontend } from "utils";
 
 export default function ExperiencePage() {
   useEffect(() => {
@@ -30,6 +24,24 @@ export default function ExperiencePage() {
         "Deveoped a credit-card risk engine for fraud prevention, which lowered chargeback cases to < 0.01%.",
         "Improved API latency by 300ms by assigning asynchronous tasks to messaging queues using Pub/Sub.",
         "Designed & developed a card management system with capabilities to tokenize, share, use credit cards.",
+      ];
+
+  const skills = isFrontend()
+    ? [
+        { text: "React Native", image: getImageURL("react") },
+        { text: "xCode", image: getImageURL("xcode") },
+        { text: "Amplitude", image: getImageURL("amplitude") },
+        { text: "Sentry", image: getImageURL("sentry") },
+        { text: "AWS", image: getImageURL("aws") },
+        { text: "React JS", image: getImageURL("react") },
+      ]
+    : [
+        { text: "Python", image: getImageURL("python") },
+        { text: "FastAPI", image: getImageURL("fastapi") },
+        { text: "AWS", image: getImageURL("aws") },
+        { text: "Node JS", image: getImageURL("node") },
+        { text: "React", image: getImageURL("react") },
+        { text: "Google Cloud", image: getImageURL("cloud") },
       ];
 
   function monthDiff() {
@@ -87,7 +99,7 @@ export default function ExperiencePage() {
               >
                 <img
                   className="h-full w-full object-cover rounded-lg"
-                  src={superpe}
+                  src={getImageURL("superpe", "jpg")}
                 />
               </div>
               {points?.map((item) => {
@@ -106,7 +118,7 @@ export default function ExperiencePage() {
             >
               <img
                 className="h-full w-full object-contain rounded-lg"
-                src={superpe}
+                src={getImageURL("superpe", "jpg")}
               />
             </div>
           </div>
@@ -116,56 +128,19 @@ export default function ExperiencePage() {
           >
             <span className="text-xl px-8">Technologies I worked with:</span>
             <div className="grid grid-cols-2 gap-4 md:gap-6 md:grid-cols-3 p-6 md:px-32">
-              <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
-                <img
-                  className="h-full object-contain flex-2 flex rounded-2xl"
-                  src={react}
-                />
-                <span className="text-black md:text-lg flex-3 flex">
-                  React Native
-                </span>
-              </div>
-              <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
-                <img
-                  className="h-full object-contain flex flex-2 rounded-2xl"
-                  src={xcode}
-                />
-                <span className="text-black md:text-lg flex flex-3">xCode</span>
-              </div>
-              <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
-                <img
-                  className="h-full object-contain flex flex-2 rounded-2xl"
-                  src={amplitude}
-                />
-                <span className="text-black md:text-lg flex flex-3">
-                  Amplitude
-                </span>
-              </div>
-              <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
-                <img
-                  className="h-full object-contain flex flex-2 rounded-2xl"
-                  src={sentry}
-                />
-                <span className="text-black md:text-lg flex flex-3">
-                  Sentry
-                </span>
-              </div>
-              <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
-                <img
-                  className="h-full object-contain flex flex-2 rounded-2xl"
-                  src={aws}
-                />
-                <span className="text-black md:text-lg flex flex-3">AWS</span>
-              </div>
-              <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
-                <img
-                  className="h-full object-contain flex flex-2 rounded-2xl"
-                  src={react}
-                />
-                <span className="text-black md:text-lg flex flex-3">
-                  React JS
-                </span>
-              </div>
+              {skills.map((item) => {
+                return (
+                  <div className="bg-white h-12 rounded-md flex items-center justify-evenly p-2 md:p-1 text-white">
+                    <img
+                      className="h-full object-contain flex-2 flex rounded-2xl"
+                      src={item.image}
+                    />
+                    <span className="text-black md:text-lg flex-3 flex">
+                      {item.text}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

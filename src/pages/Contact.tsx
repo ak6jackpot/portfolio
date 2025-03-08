@@ -1,16 +1,11 @@
-import Header from "components/Header";
-import React, { useEffect, useRef, useState } from "react";
-import { Helmet } from "react-helmet";
-import facebook from "../assets/images/Social/facebook.png";
-import github from "../assets/images/Social/github.png";
-import instagram from "../assets/images/Social/instagram.png";
-import linkedin from "../assets/images/Social/linkedin.png";
-import x from "../assets/images/Social/x.png";
-import Footer from "components/Footer";
-import { Button } from "components/Button";
-import ProfilePic from "../assets/images/ProfilePic.png";
 import emailjs from "@emailjs/browser";
-import { SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY } from "../../secrets.json";
+import { Button } from "components/Button";
+import Footer from "components/Footer";
+import Header from "components/Header";
+import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
+import { getImageURL } from "utils";
+import { PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID } from "../../secrets.json";
 
 export default function ContactPage() {
   const [contact, setContact] = useState("");
@@ -24,6 +19,26 @@ export default function ContactPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const socialData = [
+    {
+      image: getImageURL("linkedin"),
+      link: "https://www.linkedin.com/in/akshat-singh-1847461a0/",
+    },
+    {
+      image: getImageURL("facebook"),
+      link: "https://www.facebook.com/akshat6jackpot?mibextid=LQQJ4d",
+    },
+    {
+      image: getImageURL("instagram"),
+      link: "https://www.instagram.com/ak.jackpot?igsh=d3cza3owZnR6ZnVp&utm_source=qr",
+    },
+    { image: getImageURL("github"), link: "https://github.com/ak6jackpot" },
+    {
+      image: getImageURL("x"),
+      link: "https://x.com/akshats91819699?s=21&t=wJe_d0aRdoP17N-ziMxwoQ",
+    },
+  ];
 
   const sendMail = () => {
     setLoading(true);
@@ -71,7 +86,7 @@ export default function ContactPage() {
             <div className="p-2 bg-neutral-900 rounded-full">
               <img
                 className="rounded-full w-[500px] aspect-square"
-                src={ProfilePic}
+                src={getImageURL("ProfilePic")}
               />
             </div>
           </div>
@@ -88,43 +103,15 @@ export default function ContactPage() {
                 </span>
               </div>
               <div className="items-center justify-center flex flex-row md:px-16 md:py-4">
-                <a
-                  target="none"
-                  href="https://www.linkedin.com/in/akshat-singh-1847461a0/"
-                >
-                  <Button className="h-[50px] md:h-[60px] aspect-square">
-                    <img src={linkedin} />
-                  </Button>
-                </a>
-                <a
-                  target="none"
-                  href="https://www.facebook.com/akshat6jackpot?mibextid=LQQJ4d"
-                >
-                  <Button className="h-[50px] md:h-[60px] aspect-square">
-                    <img src={facebook} />
-                  </Button>
-                </a>
-                <a
-                  target="none"
-                  href="https://www.instagram.com/ak.jackpot?igsh=d3cza3owZnR6ZnVp&utm_source=qr"
-                >
-                  <Button className="h-[50px] md:h-[60px] aspect-square">
-                    <img src={instagram} />
-                  </Button>
-                </a>
-                <a target="none" href="https://github.com/ak6jackpot">
-                  <Button className="h-[50px] md:h-[60px] aspect-square">
-                    <img src={github} />
-                  </Button>
-                </a>
-                <a
-                  target="none"
-                  href="https://x.com/akshats91819699?s=21&t=wJe_d0aRdoP17N-ziMxwoQ"
-                >
-                  <Button className="h-[50px] md:h-[60px] aspect-square">
-                    <img src={x} />
-                  </Button>
-                </a>
+                {socialData?.map((item) => {
+                  return (
+                    <a target="none" href={item.link}>
+                      <Button className="h-[50px] md:h-[60px] aspect-square">
+                        <img src={item.image} />
+                      </Button>
+                    </a>
+                  );
+                })}
               </div>
               <div className="flex flex-col items-center justify-center py-4 mx-4">
                 <span className="text-white py-1">Or drop me a mail</span>

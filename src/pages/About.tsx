@@ -7,8 +7,6 @@ import Footer from "components/Footer";
 import AnimatedNumber from "components/AnimatedNumber";
 import ListItem from "components/ListItem";
 import { getImageURL, isFrontend } from "utils";
-import bits from "../assets/images/bits.png";
-import bits_full from "../assets/images/bits_full.jpeg";
 
 export default function AboutPage() {
   const [aboutMe, setAboutMe] = useState("scale-0");
@@ -175,13 +173,13 @@ export default function AboutPage() {
           <div className="flex-1 hidden md:block align-center justify-center ml-2">
             <img
               className="h-full w-full object-cover rounded-2xl"
-              src={bits}
+              src={getImageURL("bits")}
             />
           </div>
           <div className="md:hidden flex-1 overflow-hidden items-center w-full px-4 jusify-center flex">
             <img
               className="object-contain w-full h-full rounded-2xl"
-              src={bits_full}
+              src={getImageURL("bits_full", "jpeg")}
             />
           </div>
           <div className="flex flex-col items-start flex-2 md:pl-4 mx-4">

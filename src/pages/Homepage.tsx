@@ -18,16 +18,22 @@ export default function HomePage() {
       : localStorage?.setItem("type", "be");
   }, []);
 
-  const onButtonClick = () => {
+  const onButtonClick = async () => {
     const pdfUrl = isFrontend()
       ? "https://fe-assets-all.s3.ap-south-1.amazonaws.com/portfolio/Akshat_FE.pdf"
       : "https://fe-assets-all.s3.ap-south-1.amazonaws.com/portfolio/Akshat_SDE.pdf";
+
+    const response = await fetch(pdfUrl);
+    const blob = await response.blob();
+    const blobUrl = URL.createObjectURL(blob);
+
     const link = document.createElement("a");
-    link.href = pdfUrl;
-    link.download = pdfUrl;
+    link.href = blobUrl;
+    link.download = isFrontend() ? "Akshat_FE.pdf" : "Akshat_SDE.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    URL.revokeObjectURL(blobUrl);
   };
 
   const [footer, setFooter] = useState("translate-y-[90px]");

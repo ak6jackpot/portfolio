@@ -53,3 +53,16 @@ export const isFrontend = () => {
     return false;
   }
 };
+
+export const getNthVisit = (visit: Number) => {
+  switch (visit) {
+    case 1:
+      return `${visit}st`;
+    case 2:
+      return `${visit}nd`;
+    case 3:
+      return `${visit}rd`;
+    default:
+      return `${visit}th`;
+  }
+};

@@ -5,7 +5,7 @@ import Header from "components/Header";
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { getImageURL } from "utils";
-import { PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID } from "../../secrets.json";
+import { PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID_MAIL } from "../../secrets.json";
 
 export default function ContactPage() {
   const [contact, setContact] = useState("");
@@ -45,7 +45,7 @@ export default function ContactPage() {
     emailjs
       .send(
         SERVICE_ID,
-        TEMPLATE_ID,
+        TEMPLATE_ID_MAIL,
         {
           from_name: name,
           message: `${content}\n\n${name}\n${contact}`,

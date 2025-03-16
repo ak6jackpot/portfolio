@@ -4,15 +4,77 @@ import Header from "components/Header";
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { getImageURL, isFrontend } from "utils";
+import { getImageURL, getNthVisit, isFrontend } from "utils";
+import { PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID_VISIT } from "../../secrets.json";
+import emailjs from "@emailjs/browser";
 
 export default function HomePage() {
   const navigate = useNavigate();
 
   const [searchParams] = useSearchParams();
 
+  const sendMail = () => {
+    let ip = "";
+    let city = "";
+    let country = "";
+    let network = "";
+    let coordinates = "";
+
+    let visit = Number(localStorage?.getItem("visit"));
+
+    if (visit) {
+      visit++;
+      localStorage?.setItem("visit", String(visit));
+    } else {
+      visit = 1;
+      localStorage?.setItem("visit", String(visit));
+    }
+
+    fetch("https://ipinfo.io/json")
+      .then((response) => response.json())
+      .then((data) => {
+        // console.log(data);
+        ip = data?.ip ? data?.ip : "Unknown";
+        city = data?.city ? data?.city : "Unknown";
+        country = data?.country ? data?.country : "Unknown";
+        coordinates = data?.loc ? data?.loc : "Unknown";
+        network = data?.org ? data?.org : "Unknown";
+      })
+      .catch((error) => {
+        console.error("Error fetching IP address:", error);
+      });
+
+    setTimeout(() => {
+      const message = `City: ${city}\nCountry: ${country}\nIP: ${ip}\nCoordinates: ${coordinates}\nNetwork: ${network}\n`;
+
+      emailjs
+        .send(
+          SERVICE_ID,
+          TEMPLATE_ID_VISIT,
+          {
+            visit: getNthVisit(visit),
+            message: message,
+          },
+          {
+            publicKey: PUBLIC_KEY,
+          }
+        )
+        .then(
+          (result) => {
+            console.log("Email successfully sent:", result.text);
+          },
+          (error) => {
+            console.error("Error sending email:", error);
+
+            alert("Failed to send the message. Please try again.");
+          }
+        );
+    }, 2000);
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    sendMail();
     searchParams.get("t") === "f"
       ? localStorage?.setItem("type", "fe")
       : localStorage?.setItem("type", "be");

@@ -34,14 +34,14 @@ export default function AboutPage() {
         sm: [
           "BITS Pilani CSE graduate",
           "Backend Developer",
+          "System Architecture enthusiast",
           "Inherent problem solving skills",
-          "Good sense of system design",
         ],
         md: [
           "Graduated in '23 with a degree in Computer Science from BITS Pilani, Pilani Campus.",
-          "Technical proficiency in server-side Development using Python and JS/TSX.",
-          "Natural aptitude for solving and analysing case-studies & challenging problems.",
-          "Keen understanding of designing systems, creating functional & efficient services.",
+          "Technical proficiency in server-side development using Python, AWS and PostgreSQL.",
+          "Keen understanding of designing systems, considering tradeoffs and efficient structure.",
+          "Natural interest in exploring algorithms and data structures to overcome challenges.",
         ],
       };
 

@@ -82,8 +82,8 @@ export default function HomePage() {
 
   const onButtonClick = async () => {
     const pdfUrl = isFrontend()
-      ? "https://fe-assets-all.s3.ap-south-1.amazonaws.com/portfolio/Akshat_FE.pdf"
-      : "https://fe-assets-all.s3.ap-south-1.amazonaws.com/portfolio/Akshat_SDE.pdf";
+      ? "https://fe-assets-all.s3.ap-south-1.amazonaws.com/Akshat_FE.pdf"
+      : "https://fe-assets-all.s3.ap-south-1.amazonaws.com/Akshat_BE.pdf";
 
     const response = await fetch(pdfUrl);
     const blob = await response.blob();

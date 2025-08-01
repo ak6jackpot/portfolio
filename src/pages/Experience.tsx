@@ -14,24 +14,24 @@ export default function ExperiencePage() {
 
   const points = isFrontend()
     ? [
-        "Built the SuperPe application from scratch, which has currently 1M+ downloads on Google PlayStore.",
-        "Integrated multiple payment gateway SDKs like Juspay, Razorpay, Easebuzz etc. for a robust payment experience.",
-        "Integrated tools like Amplitude, Google Analytics, FbSDK, OneSignal and Sentry for effective monitoring, marketing, and error tracking.",
-        "Setup pipelines to deploy builds to both - Google PlayConsole and AppStore Connect.",
+        "Developed the SuperPe & Spaid apps from currently having 1.5M+ and 700k+ downloads on PlayStore resp",
+        "Enabled live app updates by using backend-generated app bundles, reducing deployment time by 95%",
+        "Developed a remote repository for reusable components and functions, reducing duplicacy and bugs",
+        "Integrated an in-app call scheduler, lowering fraud by 40%, with screen monitoring and live notifications.",
       ]
     : [
         "Created payment microservices from scratch, handling average transaction count of 12,000 per day.",
-        "Deveoped a credit-card risk engine for fraud prevention, which lowered chargeback cases to < 0.01%.",
-        "Improved API latency by 300ms by assigning asynchronous tasks to messaging queues using Pub/Sub.",
-        "Designed & developed a card management system with capabilities to tokenize, share, use credit cards.",
+        "Developed & set up a cron-based anomaly detection system that identified & reduced outages by 70%.",
+        "Enabled live updates for mobile app by developing a ‘Codepush’ system, also reducing bugs by 40%",
+        "Reduced fraud chargeback cases to 0.01% by developing a credit-card risk engine for fraud prevention",
       ];
 
   const skills = isFrontend()
     ? [
         { text: "React Native", image: getImageURL("react") },
         { text: "xCode", image: getImageURL("xcode") },
-        { text: "Amplitude", image: getImageURL("amplitude") },
-        { text: "Sentry", image: getImageURL("sentry") },
+        { text: "TypeScript", image: getImageURL("typescript") },
+        { text: "Firebase", image: getImageURL("firebase") },
         { text: "AWS", image: getImageURL("aws") },
         { text: "React JS", image: getImageURL("react") },
       ]
@@ -39,13 +39,13 @@ export default function ExperiencePage() {
         { text: "Python", image: getImageURL("python") },
         { text: "FastAPI", image: getImageURL("fastapi") },
         { text: "AWS", image: getImageURL("aws") },
-        { text: "Node JS", image: getImageURL("node") },
-        { text: "React", image: getImageURL("react") },
-        { text: "Google Cloud", image: getImageURL("cloud") },
+        { text: "PostgreSQL", image: getImageURL("postgres") },
+        { text: "Redis", image: getImageURL("redis") },
+        { text: "Kafka", image: getImageURL("kafka") },
       ];
 
   function monthDiff() {
-    const dateFrom = new Date("July 11, 22 00:20:18");
+    const dateFrom = new Date("Jun 26, 23 00:20:18");
     const dateTo = new Date(Date.now());
     const total_months =
       dateTo.getMonth() -
@@ -87,7 +87,7 @@ export default function ExperiencePage() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xs md:text-sm text-neutral-400">
-                    2022 onwards
+                    Jun 2023 onwards
                   </span>
                   <span className="text-xs md:text-sm text-neutral-400">
                     {monthDiff()}

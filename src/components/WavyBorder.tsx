@@ -1,35 +1,84 @@
 import React from "react";
 
-export default function WavyBorder(props: any) {
-  const { color = "white", inverted = false } = props;
-  const wavyBorderSVG = `data:image/svg+xml;base64,${btoa(`<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-    <path d="M0 20 Q 25 40, 50 20 T 100 20 T 150 20 T 200 20 T 250 20 T 300 20 T 350 20 T 400 20 V 180 Q 375 160, 350 180 T 300 180 T 250 180 T 200 180 T 150 180 T 100 180 T 50 180 T 0 180 V 20 Z" fill='${color}'/>
-    </svg>`)}`;
+interface WavyBorderProps {
+  color?: string;
+  inverted?: boolean;
+  className?: string;
+  height?: number;
+  waveCount?: number;
+}
+
+export default function WavyBorder({
+  color = "white",
+  inverted = false,
+  className = "",
+  height = 100,
+  waveCount = 8,
+}: WavyBorderProps) {
+  // Generate a more complex wave pattern
+  const generateWavePath = () => {
+    const width = 100;
+    const amplitude = 15;
+    const frequency = waveCount;
+
+    let path = `M 0 ${height / 2}`;
+
+    for (let i = 0; i <= width; i += width / (frequency * 4)) {
+      const x = i;
+      const y =
+        height / 2 +
+        Math.sin((i / width) * Math.PI * 2 * frequency) * amplitude;
+      path += ` L ${x} ${y}`;
+    }
+
+    path += ` L ${width} ${height} L 0 ${height} Z`;
+    return path;
+  };
+
+  const wavyBorderSVG = `data:image/svg+xml;base64,${btoa(`
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 ${height}">
+      <defs>
+        <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:${color};stop-opacity:1" />
+          <stop offset="50%" style="stop-color:${color};stop-opacity:0.8" />
+          <stop offset="100%" style="stop-color:${color};stop-opacity:1" />
+        </linearGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+          <feMerge> 
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      <path d="${generateWavePath()}" fill="url(#waveGradient)" filter="url(#glow)"/>
+    </svg>
+  `)}`;
 
   return (
-    <>
-      <div className="flex flex-col items-center justify-start w-full gap-[70px] bg-neutral-900">
-        {!inverted && (
-          <div
-            className="p-8 w-full"
-            style={{
-              backgroundImage: `url("${wavyBorderSVG}")`,
-              backgroundRepeat: "repeat-x",
-              backgroundSize: "400px 200px",
-            }}
-          />
-        )}
-        {inverted && (
-          <div
-            className="p-8 w-full rotate-180"
-            style={{
-              backgroundImage: `url("${wavyBorderSVG}")`,
-              backgroundRepeat: "repeat-x",
-              backgroundSize: "400px 200px",
-            }}
-          />
-        )}
-      </div>
-    </>
+    <div className={`w-full ${className}`}>
+      {!inverted && (
+        <div
+          className="w-full h-24 sm:h-32 transition-all duration-500 ease-out hover:scale-105"
+          style={{
+            backgroundImage: `url("${wavyBorderSVG}")`,
+            backgroundRepeat: "repeat-x",
+            backgroundSize: `${waveCount * 50}px ${height}px`,
+            backgroundPosition: "center",
+          }}
+        />
+      )}
+      {inverted && (
+        <div
+          className="w-full h-24 sm:h-32 transition-all duration-500 ease-out hover:scale-105 rotate-180"
+          style={{
+            backgroundImage: `url("${wavyBorderSVG}")`,
+            backgroundRepeat: "repeat-x",
+            backgroundSize: `${waveCount * 50}px ${height}px`,
+            backgroundPosition: "center",
+          }}
+        />
+      )}
+    </div>
   );
 }

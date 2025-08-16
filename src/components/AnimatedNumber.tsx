@@ -1,25 +1,45 @@
 import React, { useState, useEffect } from "react";
 
-export default function AnimatedNumber(props: any) {
-  const { num, delay } = props;
+interface AnimatedNumberProps {
+  num: number;
+  delay?: number;
+  duration?: number;
+  className?: string;
+}
+
+export default function AnimatedNumber({
+  num,
+  delay = 0,
+  duration = 1000,
+  className = "",
+}: AnimatedNumberProps) {
   const [number, setNumber] = useState(0);
 
   useEffect(() => {
-    setTimeout(() => {
-      const increment = num < 50 ? 1 : 50;
+    const timer = setTimeout(() => {
+      const increment = num < 50 ? 1 : Math.max(1, Math.floor(num / 50));
       let currentNumber = 0;
+
       const interval = setInterval(() => {
         currentNumber += increment;
-        setNumber(currentNumber);
 
-        if (currentNumber === num) {
+        if (currentNumber >= num) {
+          setNumber(num);
           clearInterval(interval);
+        } else {
+          setNumber(currentNumber);
         }
-      }, 100);
+      }, duration / (num / increment));
 
       return () => clearInterval(interval);
     }, delay);
-  }, []);
 
-  return <>{number}</>;
+    return () => clearTimeout(timer);
+  }, [num, delay, duration]);
+
+  return (
+    <span className={`inline-block ${className}`}>
+      {number.toLocaleString()}
+    </span>
+  );
 }

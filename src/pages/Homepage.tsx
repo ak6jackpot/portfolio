@@ -10,7 +10,6 @@ import emailjs from "@emailjs/browser";
 
 export default function HomePage() {
   const navigate = useNavigate();
-
   const [searchParams] = useSearchParams();
 
   const sendMail = () => {
@@ -33,7 +32,6 @@ export default function HomePage() {
     fetch("https://ipinfo.io/json")
       .then((response) => response.json())
       .then((data) => {
-        // console.log(data);
         ip = data?.ip ? data?.ip : "Unknown";
         city = data?.city ? data?.city : "Unknown";
         country = data?.country ? data?.country : "Unknown";
@@ -65,7 +63,6 @@ export default function HomePage() {
           },
           (error) => {
             console.error("Error sending email:", error);
-
             alert("Failed to send the message. Please try again.");
           }
         );
@@ -98,9 +95,8 @@ export default function HomePage() {
     URL.revokeObjectURL(blobUrl);
   };
 
-  const [footer, setFooter] = useState("translate-y-[90px]");
-  const [image, setImage] = useState("translate-y-[600px] opacity-0");
-  const [text, setText] = useState("translate-x-[-800px] opacity-0");
+  const [footer, setFooter] = useState("translate-y-[100px] opacity-0");
+  const [text, setText] = useState("translate-x-[-100px] opacity-0");
 
   const title = isFrontend() ? "Front-end Developer" : "Software Developer";
   const description = isFrontend()
@@ -128,15 +124,9 @@ export default function HomePage() {
   ];
 
   useEffect(() => {
-    setTimeout(() => {
-      setFooter("translate-y-0");
-    }, 100);
-
-    setTimeout(() => {
-      setImage("translate-y-0 opacity-70");
-      setText("translate-x-0 opacity-1");
-    }, 500);
-    window.scrollTo(0, 0);
+    // Staggered animations
+    setTimeout(() => setFooter("translate-y-0 opacity-100"), 100);
+    setTimeout(() => setText("translate-x-0 opacity-100"), 300);
   }, []);
 
   return (
@@ -145,94 +135,100 @@ export default function HomePage() {
         <title>Welcome</title>
         <meta name="Akshat Singh" />
       </Helmet>
-      <div className="flex flex-col items-center md:h-screen justify-start w-full font-urbanistNormal gap-[70px] bg-neutral-900">
+
+      <div className="min-h-screen bg-neutral-900 font-urbanistNormal">
         <Header current="home" />
-        <div
-          className={`flex mt-24 flex-col text-white text-center pb-20 md:pb-0`}
-        >
-          <div className="flex flex-row mx-4 md:mx-60 md:p-4">
-            <div
-              className={`flex flex-col ${text} transform transition duration-1000 items-start flex-2 md:pr-8`}
-            >
-              <span className="text-white text-3xl md:text-6xl ">Hi 👋🏼</span>
-              <div className="flex flex-row">
-                <span className="text-white text-3xl md:text-6xl ">I'm</span>
-                <div className="inline-block">
-                  <span className="text-3xl md:text-6xl px-2 font-extrabold bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 bg-clip-text text-transparent">
-                    Akshat Singh
-                  </span>
+
+        {/* Hero Section */}
+        <main className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center space-y-8">
+              {/* Main Content */}
+              <div
+                className={`space-y-8 ${text} transform transition-all duration-1000 ease-out`}
+              >
+                {/* Greeting */}
+                <div className="space-y-4">
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                    Hi 👋🏼
+                  </h1>
+                  <div className="flex flex-wrap items-center justify-center gap-2">
+                    <span className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
+                      I'm
+                    </span>
+                    <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold gradient-text">
+                      Akshat Singh
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div className="flex flex-row w-full items-center my-2 md:my-4">
-                <div className="h-[2px] w-full bg-gradient-to-r from-amber-500 via-blue-600 to-violet-900"></div>
-                <span className="text-white text-sm md:text-lg text-nowrap whitespace-nowrap pl-2">
-                  {title}
-                </span>
-              </div>
-              <div className="flex flex-row items-center justify-center">
-                <span className="text-left text-xs md:text-lg flex-1 flex text-neutral-400">
+
+                {/* Title with gradient line */}
+                <div className="flex items-center justify-center space-x-4">
+                  <div className="flex-1 h-0.5 bg-gradient-to-r from-amber-500 via-blue-600 to-violet-900 rounded-full max-w-xs"></div>
+                  <span className="text-lg sm:text-xl font-medium text-white whitespace-nowrap">
+                    {title}
+                  </span>
+                  <div className="flex-1 h-0.5 bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 rounded-full max-w-xs"></div>
+                </div>
+
+                {/* Description */}
+                <p className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-3xl mx-auto">
                   {description}
-                </span>
-                <div className="bg-pattern md:hidden flex-1 flex rounded-3xl overflow-hidden m-2">
-                  <div className="w-full h-[full] flex items-end z-20">
-                    <img
-                      src={getImageURL("ProfilePic-removebg")}
-                      alt="image_one"
-                      className="w-full"
-                    />
+                </p>
+
+                {/* Action Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button
+                    onClick={onButtonClick}
+                    size="md"
+                    className="w-full sm:w-auto bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 text-white hover:from-amber-500 hover:via-blue-600 hover:to-violet-900"
+                  >
+                    Download CV
+                  </Button>
+                  <Button
+                    onClick={() => navigate("/about")}
+                    size="md"
+                    variant="outline"
+                    className="w-full sm:w-auto border-2 border-violet-500 text-violet-500 hover:bg-violet-500 hover:text-white"
+                  >
+                    View Portfolio
+                  </Button>
+                </div>
+
+                {/* Social Links */}
+                <div className="space-y-4 pt-8">
+                  <p className="text-sm font-medium text-neutral-400">
+                    Connect with me:
+                  </p>
+                  <div className="flex justify-center space-x-4">
+                    {socialData?.map((item, index) => (
+                      <a
+                        key={index}
+                        href={item?.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group p-3 rounded-xl bg-neutral-800 border border-neutral-700 hover:border-violet-500/50 transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-violet-500/20"
+                      >
+                        <img
+                          src={item?.image}
+                          alt="social"
+                          className="w-6 h-6 transition-transform duration-300 group-hover:scale-110"
+                        />
+                      </a>
+                    ))}
                   </div>
                 </div>
               </div>
-              <div className="flex flex-row items-center my-8">
-                <Button
-                  onClick={onButtonClick}
-                  className="bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 text-white font-urbanistNormal hover:from-white hover:to-white hover:text-black"
-                >
-                  Download CV
-                </Button>
-
-                <Button
-                  onClick={() => {
-                    navigate("/about");
-                  }}
-                  className="ml-4 bg-gradient-to-r from-violet-900 via-blue-600 to-amber-500 text-white font-urbanistNormal hover:from-white hover:to-white hover:text-black"
-                >
-                  View Portfolio
-                </Button>
-              </div>
-              <span className="text-left hidden md:flex">
-                {"Connect with me:"}
-              </span>
-              <div className="items-center md:flex hidden justify-center flex flex-row my-2 -ml-[10px]">
-                {socialData?.map((item) => {
-                  return (
-                    <a target="none" href={item?.link}>
-                      <Button className="h-[48px] aspect-square">
-                        <img src={item?.image} />
-                      </Button>
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-            <div
-              className={`bg-pattern ${image} transform transition duration-1000 hidden md:block flex-1 rounded-3xl overflow-hidden m-2`}
-            >
-              <div className="w-full h-full flex items-end z-20">
-                <img
-                  src={getImageURL("ProfilePic-removebg")}
-                  alt="image_one"
-                  className="w-full"
-                />
-              </div>
             </div>
           </div>
-        </div>
-        <div
-          className={`${footer} transform transition duration-1000 fixed bottom-0 w-full`}
+        </main>
+
+        {/* Footer */}
+        {/* <div
+          className={`${footer} transform transition-all duration-1000 ease-out`}
         >
           <Footer />
-        </div>
+        </div> */}
       </div>
     </>
   );
